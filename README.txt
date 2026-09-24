@@ -16,7 +16,7 @@ EJECUCIÓN LOCAL
    Otras instalaciones de Python:
    python -m http.server 4173
 
-3. Abre http://localhost:4173/perito_virtual.html
+3. Abre http://localhost:4173/
 
 No abras el archivo con doble clic: el navegador limita algunas funciones de
 audio, almacenamiento y acceso al iframe cuando se usa el protocolo file://.
@@ -24,7 +24,8 @@ audio, almacenamiento y acceso al iframe cuando se usa el protocolo file://.
 ESTRUCTURA
 ----------
 
-- perito_virtual.html: experiencia principal.
+- index.html: portada, introducción de Valu y acceso al formulario.
+- perito_virtual.html: copia compatible de la experiencia principal.
 - css/perito_virtual.css: estilos de bienvenida, introducción y guía.
 - perito-integrado/: formulario y cálculo preliminar.
 - wordpress-plugin/: plugin instalable para generar y enviar el PDF.

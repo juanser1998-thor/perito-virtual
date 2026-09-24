@@ -1,0 +1,4497 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#06151b">
+    <meta name="description" content="Perito Virtual de Appraiser: estimación guiada del valor comercial de un inmueble.">
+    <title>Perito Virtual | Appraiser</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="css/perito_virtual.css">
+</head>
+<body>
+
+<!-- =========================================================
+VALU · PERITO VIRTUAL · APPRAISER
+VERSIÓN LOCAL AUTÓNOMA
+=========================================================
+========================================================= -->
+
+<div id="valuExperience">
+
+    <!-- =====================================================
+         0. BIENVENIDA
+         ===================================================== -->
+    <section id="valuWelcome" class="valu-welcome">
+
+        <div class="valu-welcome-glow" aria-hidden="true"></div>
+
+        <div class="valu-welcome-tech-shell" aria-hidden="true">
+            <span class="valu-tech-orbit valu-tech-orbit-1"></span>
+            <span class="valu-tech-orbit valu-tech-orbit-2"></span>
+            <span class="valu-tech-orbit valu-tech-orbit-3"></span>
+            <span class="valu-tech-core"></span>
+            <span class="valu-tech-node valu-tech-node-1"></span>
+            <span class="valu-tech-node valu-tech-node-2"></span>
+            <span class="valu-tech-node valu-tech-node-3"></span>
+        </div>
+
+        <div class="valu-welcome-card">
+
+            <div class="valu-welcome-status">
+                <span class="valu-status-dot" aria-hidden="true"></span>
+                Experiencia digital activa
+            </div>
+
+            <div class="valu-welcome-kicker">
+                APPRAISER · PERITO VIRTUAL
+            </div>
+
+            <h1 class="valu-welcome-title">
+                Bienvenidos a <span>Perito Virtual</span>
+            </h1>
+
+            <p class="valu-welcome-subtitle">
+                Conoce el valor estimado de tu inmueble de forma guiada.
+            </p>
+            <button
+                type="button"
+                id="valuWelcomeStart"
+                class="valu-welcome-start">
+                <span>Comenzar</span>
+                <span class="valu-welcome-arrow" aria-hidden="true">→</span>
+            </button>
+
+            <div class="valu-welcome-hud" aria-hidden="true">
+                <span>APPRAISER SYSTEM</span>
+                <i></i>
+                <span>READY</span>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         1. INTRO DE VALU
+         ===================================================== -->
+    <section id="valuIntro"
+             aria-label="Introducción de Perito Virtual"
+             hidden>
+
+        <div class="valu-content">
+
+            <div class="valu-float" id="valuFloat">
+
+                <div class="valu-stage" id="valuStage">
+
+                    <img id="valuV1"
+                         class="valu-image active"
+                         src="images/V1.png"
+                         alt="Valu, asistente de Perito Virtual">
+
+                    <img id="valuV2"
+                         class="valu-image"
+                         src="images/V2.png"
+                         alt=""
+                         aria-hidden="true">
+
+                    <img id="valuV3"
+                         class="valu-image"
+                         src="images/V3.png"
+                         alt=""
+                         aria-hidden="true">
+
+                    <img id="valuV4"
+                         class="valu-image"
+                         src="images/V4.png"
+                         alt=""
+                         aria-hidden="true">
+
+                </div>
+
+            </div>
+
+
+            <div class="valu-dialogue"
+                 id="valuDialogue"
+                 aria-live="polite">
+
+                <div class="valu-name">
+                    Valu · Perito Virtual
+                </div>
+
+                <div class="valu-bubble" id="valuBubble1">
+                    <span class="bubble-text"></span>
+                </div>
+
+                <div class="valu-bubble" id="valuBubble2">
+                    <span class="bubble-text"></span>
+                </div>
+
+                <div class="valu-bubble" id="valuBubble3">
+                    <span class="bubble-text"></span>
+                </div>
+
+                <div class="valu-bubble" id="valuBubble4">
+                    <span class="bubble-text"></span>
+                </div>
+
+                <div class="valu-bubble" id="valuBubble5">
+                    <span class="bubble-text"></span>
+                </div>
+
+                <div class="valu-intro-actions">
+
+                    <button
+                        type="button"
+                        class="valu-intro-next"
+                        id="valuIntroNext">
+                        <span>Siguiente</span>
+                        <span aria-hidden="true">→</span>
+                    </button>
+
+                    <button
+                        type="button"
+                        class="valu-start"
+                        id="valuStart">
+                        Empezar
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         2. PERITO VIRTUAL INTEGRADO
+         ===================================================== -->
+    <section id="peritoStage"
+             class="perito-stage"
+             hidden>
+
+        <div class="perito-frame-wrap">
+
+            <div id="peritoLoading"
+                 class="perito-loading">
+
+                <div class="perito-loading-dot"></div>
+
+                <span>
+                    Cargando Perito Virtual…
+                </span>
+
+            </div>
+
+            <iframe
+                id="peritoFrame"
+                class="perito-frame"
+                src="about:blank"
+                title="Perito Virtual"
+                loading="eager"
+                allow="geolocation; clipboard-read; clipboard-write"
+                referrerpolicy="strict-origin-when-cross-origin">
+            </iframe>
+
+        </div>
+
+
+        <!-- =================================================
+             VALU FLOTANTE
+             ================================================= -->
+        <div id="valuCoach"
+             class="valu-coach"
+             aria-live="polite">
+
+            <div id="valuCoachBubble"
+                 class="valu-coach-bubble">
+
+                <div class="valu-coach-header">
+
+                    <div>
+
+                        <div class="valu-coach-title">
+                            Valu · Guía
+                        </div>
+
+                        <div id="valuCoachStepLabel"
+                             class="valu-coach-step">
+                            Sección 1 de 4
+                        </div>
+
+                    </div>
+
+
+                    <button
+                        type="button"
+                        id="valuCoachClose"
+                        class="valu-coach-close"
+                        aria-label="Cerrar explicación">
+                        ×
+                    </button>
+
+                </div>
+
+
+                <div id="valuCoachText"
+                     class="valu-coach-text">
+                </div>
+
+
+                <div class="valu-coach-actions">
+                    <div class="valu-coach-nav">
+
+                        <button
+                            type="button"
+                            id="valuCoachPrev"
+                            class="valu-coach-nav-button">
+                            ←
+                        </button>
+
+                        <button
+                            type="button"
+                            id="valuCoachNext"
+                            class="valu-coach-nav-button valu-coach-nav-primary">
+                            Siguiente
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <button
+                type="button"
+                id="valuHeadButton"
+                class="valu-head-button"
+                aria-label="Abrir guía de Valu">
+
+                <span class="valu-head-halo"></span>
+
+                <span class="valu-head-stage">
+
+                    <img id="valuC1"
+                         class="valu-head-image active"
+                         src="images/c1.png"
+                         alt="Valu">
+
+                    <img id="valuC2"
+                         class="valu-head-image"
+                         src="images/c2.png"
+                         alt=""
+                         aria-hidden="true">
+
+                    <img id="valuC3"
+                         class="valu-head-image"
+                         src="images/c3.png"
+                         alt=""
+                         aria-hidden="true">
+
+                    <img id="valuC4"
+                         class="valu-head-image"
+                         src="images/c4.png"
+                         alt=""
+                         aria-hidden="true">
+
+                </span>
+
+            </button>
+
+        </div>
+
+
+        <button
+            type="button"
+            id="valuResetNow"
+            class="valu-reset-now">
+            ← Volver al inicio
+        </button>
+
+    </section>
+
+</div>
+
+
+<script>
+(function () {
+
+    /* =========================================================
+       MODO KIOSCO
+       ========================================================= */
+
+    document.documentElement.classList.add(
+        "valu-kiosk-document"
+    );
+
+    document.body.classList.add(
+        "valu-kiosk-page"
+    );
+
+
+    const root =
+        document.getElementById(
+            "valuExperience"
+        );
+
+
+    if (
+        !root ||
+        root.dataset.initialized ===
+            "true"
+    ) {
+        return;
+    }
+
+
+    root.dataset.initialized =
+        "true";
+
+
+    /* =========================================================
+       CONFIGURACIÓN
+       ========================================================= */
+
+    const PERITO_URL =
+        "perito-integrado/index.html";
+
+
+    /*
+       =========================================================
+       PASOS DEL TOUR
+       =========================================================
+
+       Ya NO usamos coordenadas.
+       Cada paso localiza los textos/campos REALES dentro
+       de Perito Virtual y obtiene su posición en ese momento.
+
+       Esto permite que funcione a resoluciones distintas.
+    */
+
+    const tutorialSteps = [
+
+        {
+            label:
+                "Sección 1 de 4",
+
+            head:
+                "c3",
+
+            mode:
+                "section",
+
+            /* Solo en el paso 1 no se dibuja ningún recuadro ni línea de resaltado. */
+            highlight:
+                false,
+
+            anchors: [
+                "Ubicación Geográfica y Contexto"
+            ],
+
+            actionAnchors: [
+                "Verificar Ubicación"
+            ],
+
+            text:
+                "Para comenzar, aquí debes ingresar la ubicación y el estrato de tu inmueble. Completa la ciudad o municipio, el barrio o sector y la dirección exacta. Recuerda verificar la ubicación en el mapa antes de continuar."
+        },
+
+        {
+            label:
+                "Sección 2 · Características básicas",
+
+            head:
+                "c4",
+
+            mode:
+                "fields",
+
+            anchors: [
+                "Tipo de Inmueble",
+                "Nivel de Acabados",
+                "Estado del Inmueble",
+                "Edad Estructural"
+            ],
+
+            text:
+                "Ahora selecciona las características principales del inmueble. Indica si es casa o apartamento, el nivel de acabados, si es nuevo o usado, y la edad de la edificación."
+        },
+
+        {
+            label:
+                "Sección 2 · Áreas",
+
+            head:
+                "c3",
+
+            mode:
+                "fields",
+
+            anchors: [
+                "Área Privada",
+                "Área Libre / Patios / Balcones"
+            ],
+
+            text:
+                "Luego ingresa el área privada del inmueble y, si aplica, el área libre, como terrazas, patios, balcones o antejardines."
+        },
+
+        {
+            label:
+                "Sección 2 · Parqueaderos y depósito",
+
+            head:
+                "c4",
+
+            mode:
+                "fields",
+
+            anchors: [
+                "Parqueaderos",
+                "Tiene Depósito"
+            ],
+
+            text:
+                "Si el inmueble tiene parqueaderos o depósito, registra la cantidad y completa la información que se solicite. Si no aplica, puedes dejar esos valores en cero."
+        },
+
+        {
+            label:
+                "Sección 3 de 4",
+
+            head:
+                "c3",
+
+            /*
+               IMPORTANTE:
+               Para esta sección NO subimos hasta un contenedor padre grande.
+               Marcamos directamente los grupos reales visibles y usamos el
+               título solo para centrar el scroll. Esto evita el salto que
+               estaba llevando la guía a otro bloque de la página.
+            */
+            mode:
+                "fields",
+
+            scrollAnchor:
+                "Habitaciones y Baños",
+
+            anchors: [
+                "Alcobas Principales",
+                "Baños Privados",
+                "Baños Sociales",
+                "Ubicado en Villa/Conjunto Cerrado",
+                "Cuarto de Servicio",
+                "Baño de Servicio",
+                "Características Adicionales (Amenities)"
+            ],
+
+            text:
+                "En esta sección debes ingresar las dependencias del inmueble, como alcobas y baños, y también las dotaciones del edificio, conjunto o urbanización donde está ubicado."
+        },
+
+        {
+            label:
+                "Sección 4 de 4",
+
+            head:
+                "c4",
+
+            mode:
+                "fields",
+
+            scrollAnchor:
+                "Información Comercial y Legal",
+
+            anchors: [
+                "Tipo de Titulación",
+                "Propósito del Avalúo",
+                "Último Avalúo Catastral",
+                "Valor de Administración",
+                "Correo Destinatario para el PDF Automático",
+                "Evidencia Fotográfica de Fachadas y Acabados"
+            ],
+
+            text:
+                "Por último, completa la información comercial y legal. Si cuentas con el último avalúo catastral, el valor de la administración o fotografías del inmueble, puedes registrarlos aquí. Si no los tienes, puedes dejar esos campos en blanco."
+        }
+
+    ];
+
+
+    /* =========================================================
+       ESTADO
+       ========================================================= */
+
+    let mode =
+        "welcome";
+
+    let introRunId =
+        0;
+
+    /*
+       Control independiente del mensaje actual de la introducción.
+       Permite que "Siguiente" cancele inmediatamente la voz/escritura
+       del mensaje actual sin romper el resto de la secuencia.
+    */
+    let introMessageRunId =
+        0;
+
+    let introMessageIndex =
+        -1;
+
+    let activeVoiceResolve =
+        null;
+
+    let tourRunId =
+        0;
+
+    let currentStepIndex =
+        0;
+
+    /*
+       Cada cambio de paso invalida cualquier enfoque anterior que
+       todavía esté esperando a que termine el scroll. Esto evita que
+       un clic rápido en "Siguiente" vuelva a dibujar un resaltado viejo.
+    */
+    let guideFocusRunId =
+        0;
+
+    /*
+       guided = recorrido inicial de lectura manual.
+       review = revisión manual posterior.
+       Conservamos el valor interno "narrated" para no alterar el resto
+       de la lógica existente, aunque la guía ya no reproduce voz.
+    */
+    let guideMode =
+        "narrated";
+
+    let guideFinished =
+        false;
+
+    let bubbleHideTimer =
+        null;
+
+    let firstGuideShown =
+        false;
+
+    let peritoDocument =
+        null;
+
+    let peritoWindow =
+        null;
+
+
+    /*
+       Un solo reproductor para conservar
+       el permiso de audio después de Comenzar.
+    */
+
+    const voicePlayer =
+        new Audio();
+
+
+    voicePlayer.preload =
+        "auto";
+
+
+    /* =========================================================
+       ELEMENTOS
+       ========================================================= */
+
+    const welcome =
+        document.getElementById(
+            "valuWelcome"
+        );
+
+    const welcomeStart =
+        document.getElementById(
+            "valuWelcomeStart"
+        );
+
+    const intro =
+        document.getElementById(
+            "valuIntro"
+        );
+
+    const floatContainer =
+        document.getElementById(
+            "valuFloat"
+        );
+
+    const stage =
+        document.getElementById(
+            "valuStage"
+        );
+
+    const dialogue =
+        document.getElementById(
+            "valuDialogue"
+        );
+
+    const introNext =
+        document.getElementById(
+            "valuIntroNext"
+        );
+
+    const startButton =
+        document.getElementById(
+            "valuStart"
+        );
+
+    const peritoStage =
+        document.getElementById(
+            "peritoStage"
+        );
+
+    const frame =
+        document.getElementById(
+            "peritoFrame"
+        );
+
+    const loading =
+        document.getElementById(
+            "peritoLoading"
+        );
+
+    const coach =
+        document.getElementById(
+            "valuCoach"
+        );
+
+    const coachBubble =
+        document.getElementById(
+            "valuCoachBubble"
+        );
+
+    const coachText =
+        document.getElementById(
+            "valuCoachText"
+        );
+
+    const coachStepLabel =
+        document.getElementById(
+            "valuCoachStepLabel"
+        );
+
+    const coachClose =
+        document.getElementById(
+            "valuCoachClose"
+        );
+
+    const coachPrev =
+        document.getElementById(
+            "valuCoachPrev"
+        );
+
+    const coachNext =
+        document.getElementById(
+            "valuCoachNext"
+        );
+    const headButton =
+        document.getElementById(
+            "valuHeadButton"
+        );
+
+    const resetNow =
+        document.getElementById(
+            "valuResetNow"
+        );
+
+
+    /* =========================================================
+       VIEWPORT MÓVIL REAL · SAFARI / CHROME / ORIENTACIÓN
+       ========================================================= */
+
+    const valuExperience =
+        document.getElementById(
+            "valuExperience"
+        );
+
+
+    function syncValuViewport() {
+
+        if (!valuExperience) {
+            return;
+        }
+
+
+        const viewport =
+            window.visualViewport;
+
+
+        const height =
+            viewport
+                ? viewport.height
+                : window.innerHeight;
+
+
+        const width =
+            viewport
+                ? viewport.width
+                : window.innerWidth;
+
+
+        valuExperience.style.setProperty(
+            "--valu-mobile-vh",
+            Math.max(
+                240,
+                Math.round(height)
+            ) + "px"
+        );
+
+
+        valuExperience.style.setProperty(
+            "--valu-mobile-vw",
+            Math.max(
+                240,
+                Math.round(width)
+            ) + "px"
+        );
+
+    }
+
+
+    syncValuViewport();
+
+
+    window.addEventListener(
+        "resize",
+        syncValuViewport,
+        { passive: true }
+    );
+
+
+    window.addEventListener(
+        "orientationchange",
+        function () {
+
+            syncValuViewport();
+
+            setTimeout(
+                syncValuViewport,
+                120
+            );
+
+            setTimeout(
+                syncValuViewport,
+                420
+            );
+
+        },
+        { passive: true }
+    );
+
+
+    if (window.visualViewport) {
+
+        window.visualViewport.addEventListener(
+            "resize",
+            syncValuViewport,
+            { passive: true }
+        );
+
+        window.visualViewport.addEventListener(
+            "scroll",
+            syncValuViewport,
+            { passive: true }
+        );
+
+    }
+
+
+    const poses = {
+
+        neutral:
+            document.getElementById(
+                "valuV1"
+            ),
+
+        blink:
+            document.getElementById(
+                "valuV2"
+            ),
+
+        hello:
+            document.getElementById(
+                "valuV3"
+            ),
+
+        point:
+            document.getElementById(
+                "valuV4"
+            )
+
+    };
+
+
+    const heads = {
+
+        c1:
+            document.getElementById(
+                "valuC1"
+            ),
+
+        c2:
+            document.getElementById(
+                "valuC2"
+            ),
+
+        c3:
+            document.getElementById(
+                "valuC3"
+            ),
+
+        c4:
+            document.getElementById(
+                "valuC4"
+            )
+
+    };
+
+
+    /* =========================================================
+       INTRO · MENSAJES
+       ========================================================= */
+
+    const introMessages = [
+
+        {
+            bubble:
+                document.getElementById(
+                    "valuBubble1"
+                ),
+
+            text:
+                "Hola, soy Valu, tu asistente de Perito Virtual.",
+
+            audio:
+                "audio/1.mp3",
+
+            pose:
+                "hello",
+
+            gesture:
+                "gesture-hello"
+        },
+
+        {
+            bubble:
+                document.getElementById(
+                    "valuBubble2"
+                ),
+
+            text:
+                "Bienvenido a la nueva herramienta de Appraiser.",
+
+            audio:
+                "audio/2.mp3",
+
+            pose:
+                "neutral",
+
+            gesture:
+                "gesture-welcome"
+        },
+
+        {
+            bubble:
+                document.getElementById(
+                    "valuBubble3"
+                ),
+
+            text:
+                "Aquí podrás conocer el valor estimado de tu inmueble.",
+
+            audio:
+                "audio/3.mp3",
+
+            pose:
+                "neutral",
+
+            gesture:
+                "gesture-explain"
+        },
+
+        {
+            bubble:
+                document.getElementById(
+                    "valuBubble4"
+                ),
+
+            text:
+                "Por ahora, Perito Virtual está diseñado para inmuebles sometidos a propiedad horizontal, como apartamentos o casas dentro de conjuntos o condominios.",
+
+            audio:
+                "audio/4.mp3",
+
+            pose:
+                "neutral",
+
+            gesture:
+                "gesture-property"
+        },
+
+        {
+            bubble:
+                document.getElementById(
+                    "valuBubble5"
+                ),
+
+            text:
+                "Cuando estés listo, haz clic en “Empezar”. Te acompañaré paso a paso durante todo el proceso.",
+
+            audio:
+                "audio/5.mp3",
+
+            pose:
+                "point",
+
+            gesture:
+                "gesture-start"
+        }
+
+    ];
+
+
+    /* =========================================================
+       UTILIDADES GENERALES
+       ========================================================= */
+
+    function wait(ms) {
+
+        return new Promise(
+            resolve =>
+                setTimeout(
+                    resolve,
+                    ms
+                )
+        );
+
+    }
+
+
+    function clamp(
+        value,
+        min,
+        max
+    ) {
+
+        return Math.min(
+            max,
+            Math.max(
+                min,
+                value
+            )
+        );
+
+    }
+
+
+    function normalizeText(value) {
+
+        return String(
+            value || ""
+        )
+        .normalize("NFD")
+        .replace(
+            /[\u0300-\u036f]/g,
+            ""
+        )
+        .toLowerCase()
+        .replace(
+            /[¿?]/g,
+            ""
+        )
+        .replace(
+            /\s+/g,
+            " "
+        )
+        .trim();
+
+    }
+
+
+    function preloadImages(
+        images
+    ) {
+
+        return Promise.all(
+
+            images.map(
+                image => {
+
+                    if (
+                        !image ||
+                        (
+                            image.complete &&
+                            image.naturalWidth >
+                                0
+                        )
+                    ) {
+
+                        return Promise.resolve();
+
+                    }
+
+
+                    return new Promise(
+                        resolve => {
+
+                            image.addEventListener(
+                                "load",
+                                resolve,
+                                {
+                                    once:
+                                        true
+                                }
+                            );
+
+                            image.addEventListener(
+                                "error",
+                                resolve,
+                                {
+                                    once:
+                                        true
+                                }
+                            );
+
+                        }
+                    );
+
+                }
+            )
+
+        );
+
+    }
+
+
+    function clearBubbleTimer() {
+
+        if (
+            bubbleHideTimer
+        ) {
+
+            clearTimeout(
+                bubbleHideTimer
+            );
+
+
+            bubbleHideTimer =
+                null;
+
+        }
+
+    }
+
+
+    /* =========================================================
+       AUDIO
+       ========================================================= */
+
+    async function unlockVoice() {
+
+        try {
+
+            voicePlayer.src =
+                introMessages[0].audio;
+
+            voicePlayer.volume =
+                0;
+
+
+            await voicePlayer.play();
+
+
+            voicePlayer.pause();
+
+            voicePlayer.currentTime =
+                0;
+
+            voicePlayer.volume =
+                1;
+
+        }
+
+        catch (error) {
+
+            voicePlayer.volume =
+                1;
+
+        }
+
+    }
+
+
+    function stopVoice() {
+
+        voicePlayer.pause();
+
+        try {
+
+            voicePlayer.currentTime =
+                0;
+
+        }
+
+        catch (error) {
+            /* El audio todavía puede no tener metadata cargada. */
+        }
+
+
+        /*
+           Si una narración estaba esperando el evento "ended", la
+           resolvemos también al adelantar manualmente. Así nunca queda
+           una promesa antigua bloqueando la introducción.
+        */
+        if (activeVoiceResolve) {
+
+            const resolveVoice =
+                activeVoiceResolve;
+
+            activeVoiceResolve =
+                null;
+
+            resolveVoice();
+
+        }
+
+    }
+
+    function getAudioDuration(
+        url
+    ) {
+
+        return new Promise(
+            resolve => {
+
+                if (!url) {
+
+                    resolve(
+                        0
+                    );
+
+                    return;
+
+                }
+
+
+                stopVoice();
+
+
+                voicePlayer.src =
+                    url;
+
+                voicePlayer.load();
+
+
+                const done =
+                    function () {
+
+                        voicePlayer.removeEventListener(
+                            "loadedmetadata",
+                            done
+                        );
+
+
+                        resolve(
+                            isFinite(
+                                voicePlayer.duration
+                            )
+                                ?
+                                voicePlayer.duration *
+                                1000
+                                :
+                                0
+                        );
+
+                    };
+
+
+                voicePlayer.addEventListener(
+                    "loadedmetadata",
+                    done,
+                    {
+                        once:
+                            true
+                    }
+                );
+
+
+                voicePlayer.addEventListener(
+                    "error",
+                    function () {
+
+                        resolve(
+                            0
+                        );
+
+                    },
+                    {
+                        once:
+                            true
+                    }
+                );
+
+            }
+        );
+
+    }
+
+
+    function playVoice(
+        url
+    ) {
+
+        return new Promise(
+            async resolve => {
+
+                if (!url) {
+
+                    resolve();
+
+                    return;
+
+                }
+
+
+                stopVoice();
+
+
+                voicePlayer.src =
+                    url;
+
+                voicePlayer.currentTime =
+                    0;
+
+                voicePlayer.volume =
+                    1;
+
+
+                let settled =
+                    false;
+
+
+                const done =
+                    function () {
+
+                        if (settled) {
+                            return;
+                        }
+
+                        settled =
+                            true;
+
+
+                        voicePlayer.removeEventListener(
+                            "ended",
+                            done
+                        );
+
+                        voicePlayer.removeEventListener(
+                            "error",
+                            done
+                        );
+
+
+                        if (
+                            activeVoiceResolve ===
+                            done
+                        ) {
+
+                            activeVoiceResolve =
+                                null;
+
+                        }
+
+
+                        resolve();
+
+                    };
+
+
+                activeVoiceResolve =
+                    done;
+
+
+                voicePlayer.addEventListener(
+                    "ended",
+                    done
+                );
+
+                voicePlayer.addEventListener(
+                    "error",
+                    done
+                );
+
+
+                try {
+
+                    await voicePlayer.play();
+
+                }
+
+                catch (error) {
+
+                    done();
+
+                }
+
+            }
+        );
+
+    }
+
+
+    /* =========================================================
+       INTRO · POSES
+       ========================================================= */
+
+    function showPose(
+        name
+    ) {
+
+        Object.values(
+            poses
+        ).forEach(
+            image =>
+                image.classList.remove(
+                    "active"
+                )
+        );
+
+
+        if (
+            poses[name]
+        ) {
+
+            poses[name]
+                .classList.add(
+                    "active"
+                );
+
+        }
+
+    }
+
+
+    function setGesture(
+        name
+    ) {
+
+        stage.classList.remove(
+            "gesture-hello",
+            "gesture-welcome",
+            "gesture-explain",
+            "gesture-property",
+            "gesture-start"
+        );
+
+
+        if (name) {
+
+            stage.classList.add(
+                name
+            );
+
+        }
+
+    }
+
+
+    async function blinkIntro(
+        runId
+    ) {
+
+        if (
+            mode !==
+                "intro" ||
+            runId !==
+                introRunId
+        ) {
+            return;
+        }
+
+
+        showPose(
+            "blink"
+        );
+
+
+        await wait(
+            100
+        );
+
+
+        if (
+            mode ===
+                "intro" &&
+            runId ===
+                introRunId
+        ) {
+
+            showPose(
+                "neutral"
+            );
+
+        }
+
+    }
+
+
+    async function typeBubble(
+        bubble,
+        text,
+        duration,
+        runId,
+        messageRunId
+    ) {
+
+        const textElement =
+            bubble.querySelector(
+                ".bubble-text"
+            );
+
+
+        textElement.textContent =
+            "";
+
+
+        bubble.classList.add(
+            "visible"
+        );
+
+
+        bubble
+            .querySelectorAll(
+                ".valu-cursor"
+            )
+            .forEach(
+                cursor =>
+                    cursor.remove()
+            );
+
+
+        const cursor =
+            document.createElement(
+                "span"
+            );
+
+
+        cursor.className =
+            "valu-cursor";
+
+
+        bubble.appendChild(
+            cursor
+        );
+
+
+        const usableDuration =
+            Math.max(
+                duration * .86,
+                1100
+            );
+
+
+        const speed =
+            usableDuration /
+            Math.max(
+                text.length,
+                1
+            );
+
+
+        for (
+            let i = 0;
+            i < text.length;
+            i++
+        ) {
+
+            if (
+                mode !==
+                    "intro" ||
+                runId !==
+                    introRunId ||
+                messageRunId !==
+                    introMessageRunId
+            ) {
+
+                cursor.remove();
+
+                return;
+
+            }
+
+
+            textElement.textContent +=
+                text.charAt(
+                    i
+                );
+
+
+            await wait(
+                speed
+            );
+
+        }
+
+
+        cursor.remove();
+
+    }
+
+
+    function completeIntroBubble(
+        index
+    ) {
+
+        const message =
+            introMessages[index];
+
+
+        if (!message) {
+            return;
+        }
+
+
+        const textElement =
+            message.bubble.querySelector(
+                ".bubble-text"
+            );
+
+
+        if (textElement) {
+
+            textElement.textContent =
+                message.text;
+
+        }
+
+
+        message.bubble.classList.add(
+            "visible"
+        );
+
+
+        message.bubble
+            .querySelectorAll(
+                ".valu-cursor"
+            )
+            .forEach(
+                cursor =>
+                    cursor.remove()
+            );
+
+    }
+
+
+    function revealIntroStart(
+        runId
+    ) {
+
+        if (
+            mode !==
+                "intro" ||
+            runId !==
+                introRunId
+        ) {
+            return;
+        }
+
+
+        introMessageRunId++;
+
+        stopVoice();
+
+
+        if (
+            introMessageIndex >=
+                0 &&
+            introMessageIndex <
+                introMessages.length
+        ) {
+
+            completeIntroBubble(
+                introMessageIndex
+            );
+
+        }
+
+
+        introMessageIndex =
+            introMessages.length;
+
+
+        introNext.classList.remove(
+            "visible"
+        );
+
+
+        showPose(
+            "point"
+        );
+
+        setGesture(
+            "gesture-start"
+        );
+
+
+        startButton.classList.add(
+            "visible"
+        );
+
+
+        syncValuViewport();
+
+
+        if (
+            window.matchMedia(
+                "(max-width: 767px), (max-height: 600px)"
+            ).matches
+        ) {
+
+            requestAnimationFrame(
+                function () {
+
+                    startButton.scrollIntoView({
+                        block:
+                            "nearest",
+                        inline:
+                            "nearest",
+                        behavior:
+                            "auto"
+                    });
+
+                }
+            );
+
+        }
+
+    }
+
+
+    async function showIntroMessage(
+        index,
+        runId
+    ) {
+
+        if (
+            mode !==
+                "intro" ||
+            runId !==
+                introRunId
+        ) {
+            return;
+        }
+
+
+        if (
+            index >=
+            introMessages.length
+        ) {
+
+            revealIntroStart(
+                runId
+            );
+
+            return;
+
+        }
+
+
+        const messageRunId =
+            ++introMessageRunId;
+
+
+        stopVoice();
+
+
+        introMessageIndex =
+            index;
+
+
+        const message =
+            introMessages[index];
+
+
+        showPose(
+            message.pose
+        );
+
+        setGesture(
+            message.gesture
+        );
+
+
+        introNext.classList.add(
+            "visible"
+        );
+
+
+        await wait(
+            90
+        );
+
+
+        if (
+            mode !==
+                "intro" ||
+            runId !==
+                introRunId ||
+            messageRunId !==
+                introMessageRunId
+        ) {
+            return;
+        }
+
+
+        const duration =
+            await getAudioDuration(
+                message.audio
+            );
+
+
+        if (
+            mode !==
+                "intro" ||
+            runId !==
+                introRunId ||
+            messageRunId !==
+                introMessageRunId
+        ) {
+            return;
+        }
+
+
+        await Promise.all([
+
+            playVoice(
+                message.audio
+            ),
+
+            typeBubble(
+                message.bubble,
+                message.text,
+                duration ||
+                    Math.max(
+                        message.text.length *
+                            52,
+                        1600
+                    ),
+                runId,
+                messageRunId
+            )
+
+        ]);
+
+
+        if (
+            mode !==
+                "intro" ||
+            runId !==
+                introRunId ||
+            messageRunId !==
+                introMessageRunId ||
+            introMessageIndex !==
+                index
+        ) {
+            return;
+        }
+
+
+        await wait(
+            230
+        );
+
+
+        if (
+            mode !==
+                "intro" ||
+            runId !==
+                introRunId ||
+            messageRunId !==
+                introMessageRunId ||
+            introMessageIndex !==
+                index
+        ) {
+            return;
+        }
+
+
+        showIntroMessage(
+            index + 1,
+            runId
+        );
+
+    }
+
+
+    function advanceIntroMessage() {
+
+        if (
+            mode !==
+                "intro"
+        ) {
+            return;
+        }
+
+
+        /*
+           Completa inmediatamente el texto que esté escribiéndose,
+           detiene su audio y avanza un solo mensaje por cada clic.
+        */
+        if (
+            introMessageIndex >=
+                0 &&
+            introMessageIndex <
+                introMessages.length
+        ) {
+
+            completeIntroBubble(
+                introMessageIndex
+            );
+
+        }
+
+
+        introMessageRunId++;
+
+        stopVoice();
+
+
+        if (
+            introMessageIndex <
+                0
+        ) {
+
+            showIntroMessage(
+                0,
+                introRunId
+            );
+
+            return;
+
+        }
+
+
+        if (
+            introMessageIndex >=
+                introMessages.length -
+                1
+        ) {
+
+            revealIntroStart(
+                introRunId
+            );
+
+            return;
+
+        }
+
+
+        showIntroMessage(
+            introMessageIndex +
+                1,
+            introRunId
+        );
+
+    }
+
+
+    async function playIntro(
+        runId
+    ) {
+
+        await preloadImages(
+            Object.values(
+                poses
+            )
+        );
+
+
+        if (
+            mode !==
+                "intro" ||
+            runId !==
+                introRunId
+        ) {
+            return;
+        }
+
+
+        introMessageIndex =
+            -1;
+
+        introMessageRunId++;
+
+
+        showPose(
+            "neutral"
+        );
+
+        setGesture(
+            null
+        );
+
+
+        floatContainer.classList.add(
+            "visible"
+        );
+
+
+        await wait(
+            650
+        );
+
+        await blinkIntro(
+            runId
+        );
+
+        await wait(
+            260
+        );
+
+
+        if (
+            mode !==
+                "intro" ||
+            runId !==
+                introRunId
+        ) {
+            return;
+        }
+
+
+        dialogue.classList.add(
+            "visible"
+        );
+
+
+        showIntroMessage(
+            0,
+            runId
+        );
+
+    }
+
+
+    function resetIntroVisuals() {
+
+        floatContainer.classList.remove(
+            "visible"
+        );
+
+        dialogue.classList.remove(
+            "visible"
+        );
+
+        introNext.classList.remove(
+            "visible"
+        );
+
+        startButton.classList.remove(
+            "visible"
+        );
+
+
+        introMessageRunId++;
+
+        introMessageIndex =
+            -1;
+
+
+        intro.classList.remove(
+            "valu-intro-leaving"
+        );
+
+
+        introMessages.forEach(
+            message => {
+
+                message.bubble.classList.remove(
+                    "visible"
+                );
+
+
+                const text =
+                    message.bubble.querySelector(
+                        ".bubble-text"
+                    );
+
+
+                if (text) {
+
+                    text.textContent =
+                        "";
+
+                }
+
+
+                message.bubble
+                    .querySelectorAll(
+                        ".valu-cursor"
+                    )
+                    .forEach(
+                        cursor =>
+                            cursor.remove()
+                    );
+
+            }
+        );
+
+
+        showPose(
+            "neutral"
+        );
+
+        setGesture(
+            null
+        );
+
+    }
+
+
+    /* =========================================================
+       CABEZA DE VALU
+       ========================================================= */
+
+    preloadImages(
+        Object.values(
+            heads
+        )
+    );
+
+
+    function showHead(
+        name
+    ) {
+
+        Object.values(
+            heads
+        ).forEach(
+            image =>
+                image.classList.remove(
+                    "active"
+                )
+        );
+
+
+        if (
+            heads[name]
+        ) {
+
+            heads[name]
+                .classList.add(
+                    "active"
+                );
+
+        }
+
+    }
+
+
+    async function animateHead(
+        tempHead
+    ) {
+
+        showHead(
+            tempHead ||
+            "c3"
+        );
+
+
+        await wait(
+            750
+        );
+
+
+        if (
+            mode ===
+            "perito"
+        ) {
+
+            showHead(
+                "c1"
+            );
+
+        }
+
+    }
+
+
+    async function blinkHead() {
+
+        if (
+            mode !==
+                "perito" ||
+            document.hidden ||
+            !coach.classList.contains(
+                "visible"
+            )
+        ) {
+            return;
+        }
+
+
+        showHead(
+            "c2"
+        );
+
+
+        await wait(
+            110
+        );
+
+
+        if (
+            mode ===
+            "perito"
+        ) {
+
+            showHead(
+                "c1"
+            );
+
+        }
+
+    }
+
+
+    setInterval(
+        blinkHead,
+        4600
+    );
+
+
+    /* =========================================================
+       ACCESO SAME-ORIGIN A PERITO
+       ========================================================= */
+
+    function getPeritoContext() {
+
+        try {
+
+            const doc =
+                frame.contentDocument;
+
+            const win =
+                frame.contentWindow;
+
+
+            if (
+                !doc ||
+                !win ||
+                !doc.body
+            ) {
+
+                return null;
+
+            }
+
+
+            /*
+               Esta lectura solo funciona si realmente
+               estamos bajo el mismo origen.
+            */
+
+            void doc.body.innerHTML;
+
+
+            return {
+                doc:
+                    doc,
+
+                win:
+                    win
+            };
+
+        }
+
+        catch (error) {
+
+            console.error(
+                "Valu: el iframe no quedó same-origin.",
+                error
+            );
+
+
+            return null;
+
+        }
+
+    }
+
+
+    function isVisibleInside(
+        element,
+        win
+    ) {
+
+        if (!element) {
+            return false;
+        }
+
+
+        const rect =
+            element.getBoundingClientRect();
+
+
+        const style =
+            win.getComputedStyle(
+                element
+            );
+
+
+        return (
+            rect.width > 0 &&
+            rect.height > 0 &&
+            style.display !==
+                "none" &&
+            style.visibility !==
+                "hidden"
+        );
+
+    }
+
+
+    function findBestTextElement(
+        doc,
+        win,
+        searchText
+    ) {
+
+        const needle =
+            normalizeText(
+                searchText
+            );
+
+
+        const selectors =
+            [
+                "h1",
+                "h2",
+                "h3",
+                "h4",
+                "h5",
+                "h6",
+                "label",
+                "legend",
+                "button",
+                "p",
+                "span",
+                "div"
+            ].join(",");
+
+
+        const matches =
+            Array.from(
+                doc.querySelectorAll(
+                    selectors
+                )
+            )
+            .filter(
+                element => {
+
+                    if (
+                        !isVisibleInside(
+                            element,
+                            win
+                        )
+                    ) {
+                        return false;
+                    }
+
+
+                    const text =
+                        normalizeText(
+                            element.textContent
+                        );
+
+
+                    return (
+                        text &&
+                        text.includes(
+                            needle
+                        )
+                    );
+
+                }
+            )
+            .sort(
+                (a, b) => {
+
+                    const aText =
+                        normalizeText(
+                            a.textContent
+                        );
+
+                    const bText =
+                        normalizeText(
+                            b.textContent
+                        );
+
+
+                    /*
+                       Preferimos el elemento cuyo texto
+                       sea más corto/específico.
+                    */
+
+                    return (
+                        aText.length -
+                        bText.length
+                    );
+
+                }
+            );
+
+
+        return (
+            matches[0] ||
+            null
+        );
+
+    }
+
+
+    function findFieldBlock(
+        anchor,
+        win
+    ) {
+
+        if (!anchor) {
+            return null;
+        }
+
+
+        /*
+           Si es label con "for", arrancamos por
+           el control asociado.
+        */
+
+        let control =
+            null;
+
+
+        if (
+            anchor.tagName ===
+                "LABEL" &&
+            anchor.htmlFor
+        ) {
+
+            control =
+                anchor.ownerDocument
+                    .getElementById(
+                        anchor.htmlFor
+                    );
+
+        }
+
+
+        let node =
+            control
+                ?
+                control.parentElement
+                :
+                anchor.parentElement;
+
+
+        let fallback =
+            anchor;
+
+
+        for (
+            let i = 0;
+            i < 7 &&
+            node;
+            i++
+        ) {
+
+            const rect =
+                node.getBoundingClientRect();
+
+
+            const controls =
+                Array.from(
+                    node.querySelectorAll(
+                        "input, select, textarea, button"
+                    )
+                )
+                .filter(
+                    item =>
+                        isVisibleInside(
+                            item,
+                            win
+                        )
+                );
+
+
+            if (
+                controls.length >=
+                    1 &&
+                rect.width >=
+                    150 &&
+                rect.height >=
+                    38 &&
+                rect.height <=
+                    360
+            ) {
+
+                return node;
+
+            }
+
+
+            if (
+                rect.width >=
+                    150 &&
+                rect.height >=
+                    30 &&
+                rect.height <=
+                    420
+            ) {
+
+                fallback =
+                    node;
+
+            }
+
+
+            node =
+                node.parentElement;
+
+        }
+
+
+        return fallback;
+
+    }
+
+
+    function findSectionBlock(
+        anchor,
+        win
+    ) {
+
+        if (!anchor) {
+            return null;
+        }
+
+
+        let node =
+            anchor.parentElement;
+
+
+        let fallback =
+            anchor.parentElement ||
+            anchor;
+
+
+        for (
+            let i = 0;
+            i < 9 &&
+            node;
+            i++
+        ) {
+
+            const rect =
+                node.getBoundingClientRect();
+
+
+            const controls =
+                Array.from(
+                    node.querySelectorAll(
+                        "input, select, textarea, button"
+                    )
+                )
+                .filter(
+                    item =>
+                        isVisibleInside(
+                            item,
+                            win
+                        )
+                );
+
+
+            /*
+               Elegimos el PRIMER contenedor amplio
+               que contiene varios controles.
+            */
+
+            if (
+                controls.length >=
+                    3 &&
+                rect.width >=
+                    win.innerWidth *
+                    .45 &&
+                rect.height >=
+                    260 &&
+                rect.height <=
+                    1350
+            ) {
+
+                return node;
+
+            }
+
+
+            if (
+                rect.width >=
+                    win.innerWidth *
+                    .4 &&
+                rect.height >=
+                    220
+            ) {
+
+                fallback =
+                    node;
+
+            }
+
+
+            node =
+                node.parentElement;
+
+        }
+
+
+        return fallback;
+
+    }
+
+
+    function uniqueElements(
+        elements
+    ) {
+
+        return Array.from(
+            new Set(
+                elements.filter(
+                    Boolean
+                )
+            )
+        );
+
+    }
+
+
+    function resolveStepElements(
+        step
+    ) {
+
+        if (
+            !peritoDocument ||
+            !peritoWindow
+        ) {
+
+            return null;
+
+        }
+
+
+        const elements =
+            [];
+
+
+        for (
+            const anchorText
+            of step.anchors
+        ) {
+
+            const anchor =
+                findBestTextElement(
+                    peritoDocument,
+                    peritoWindow,
+                    anchorText
+                );
+
+
+            if (!anchor) {
+
+                console.warn(
+                    "Valu no encontró:",
+                    anchorText
+                );
+
+
+                continue;
+
+            }
+
+
+            const target =
+                step.mode ===
+                    "section"
+                    ?
+                    findSectionBlock(
+                        anchor,
+                        peritoWindow
+                    )
+                    :
+                    findFieldBlock(
+                        anchor,
+                        peritoWindow
+                    );
+
+
+            elements.push(
+                target ||
+                anchor
+            );
+
+        }
+
+
+        const actionElements =
+            [];
+
+
+        if (
+            step.actionAnchors
+        ) {
+
+            for (
+                const anchorText
+                of step.actionAnchors
+            ) {
+
+                const anchor =
+                    findBestTextElement(
+                        peritoDocument,
+                        peritoWindow,
+                        anchorText
+                    );
+
+
+                if (anchor) {
+
+                    actionElements.push(
+                        anchor
+                    );
+
+                }
+
+            }
+
+        }
+
+
+        return {
+            elements:
+                uniqueElements(
+                    elements
+                ),
+
+            actionElements:
+                uniqueElements(
+                    actionElements
+                )
+        };
+
+    }
+
+
+    function getUnionDocumentRect(
+        elements,
+        win
+    ) {
+
+        const rects =
+            elements
+            .map(
+                element =>
+                    element.getBoundingClientRect()
+            )
+            .filter(
+                rect =>
+                    rect.width >
+                        0 &&
+                    rect.height >
+                        0
+            );
+
+
+        if (
+            !rects.length
+        ) {
+
+            return null;
+
+        }
+
+
+        const left =
+            Math.min(
+                ...rects.map(
+                    rect =>
+                        rect.left
+                )
+            ) +
+            win.scrollX;
+
+
+        const top =
+            Math.min(
+                ...rects.map(
+                    rect =>
+                        rect.top
+                )
+            ) +
+            win.scrollY;
+
+
+        const right =
+            Math.max(
+                ...rects.map(
+                    rect =>
+                        rect.right
+                )
+            ) +
+            win.scrollX;
+
+
+        const bottom =
+            Math.max(
+                ...rects.map(
+                    rect =>
+                        rect.bottom
+                )
+            ) +
+            win.scrollY;
+
+
+        return {
+            left:
+                left,
+
+            top:
+                top,
+
+            right:
+                right,
+
+            bottom:
+                bottom,
+
+            width:
+                right -
+                left,
+
+            height:
+                bottom -
+                top
+        };
+
+    }
+
+
+    /* =========================================================
+       OVERLAY REAL DENTRO DE PERITO VIRTUAL
+       ========================================================= */
+
+    function ensurePeritoGuideLayer() {
+
+        if (
+            !peritoDocument
+        ) {
+            return null;
+        }
+
+
+        let style =
+            peritoDocument
+                .getElementById(
+                    "valu-guide-style"
+                );
+
+
+        if (!style) {
+
+            style =
+                peritoDocument
+                    .createElement(
+                        "style"
+                    );
+
+
+            style.id =
+                "valu-guide-style";
+
+
+            style.textContent =
+                `
+                #valu-guide-focus,
+                #valu-guide-action {
+                    position: absolute;
+                    pointer-events: none;
+                    opacity: 0;
+                    z-index: 2147483646;
+                    box-sizing: border-box;
+                    /*
+                       No animamos left/top/width/height. Así el marco nunca
+                       interpola entre dos zonas cuando hay clics consecutivos.
+                    */
+                    transition:
+                        opacity .16s ease;
+                }
+
+                #valu-guide-focus {
+                    border:
+                        3px solid
+                        rgba(32, 201, 181, .98);
+
+                    border-radius:
+                        24px;
+
+                    background:
+                        rgba(32, 201, 181, .025);
+
+                    box-shadow:
+                        0 0 0 9999px
+                        rgba(2, 9, 18, .20),
+
+                        0 0 0 7px
+                        rgba(32, 201, 181, .08),
+
+                        0 0 36px
+                        rgba(32, 201, 181, .34);
+                }
+
+                #valu-guide-action {
+                    border:
+                        3px solid
+                        rgba(115, 230, 255, .98);
+
+                    border-radius:
+                        14px;
+
+                    background:
+                        rgba(115, 230, 255, .055);
+
+                    box-shadow:
+                        0 0 0 5px
+                        rgba(115, 230, 255, .11),
+
+                        0 0 30px
+                        rgba(115, 230, 255, .42);
+
+                    animation:
+                        valuGuidePulse
+                        1.25s
+                        ease-in-out
+                        infinite;
+                }
+
+                #valu-guide-focus.valu-show,
+                #valu-guide-action.valu-show {
+                    opacity: 1;
+                }
+
+                @keyframes valuGuidePulse {
+
+                    0%,
+                    100% {
+                        transform:
+                            scale(1);
+                    }
+
+                    50% {
+                        transform:
+                            scale(1.015);
+
+                        box-shadow:
+                            0 0 0 9px
+                            rgba(115, 230, 255, .12),
+
+                            0 0 34px
+                            rgba(115, 230, 255, .48);
+                    }
+
+                }
+                `;
+
+
+            peritoDocument.head
+                .appendChild(
+                    style
+                );
+
+        }
+
+
+        let focus =
+            peritoDocument
+                .getElementById(
+                    "valu-guide-focus"
+                );
+
+
+        if (!focus) {
+
+            focus =
+                peritoDocument
+                    .createElement(
+                        "div"
+                    );
+
+
+            focus.id =
+                "valu-guide-focus";
+
+
+            peritoDocument.body
+                .appendChild(
+                    focus
+                );
+
+        }
+
+
+        let action =
+            peritoDocument
+                .getElementById(
+                    "valu-guide-action"
+                );
+
+
+        if (!action) {
+
+            action =
+                peritoDocument
+                    .createElement(
+                        "div"
+                    );
+
+
+            action.id =
+                "valu-guide-action";
+
+
+            peritoDocument.body
+                .appendChild(
+                    action
+                );
+
+        }
+
+
+        return {
+            focus:
+                focus,
+
+            action:
+                action
+        };
+
+    }
+
+
+    function setOverlayRect(
+        element,
+        rect,
+        padding
+    ) {
+
+        if (
+            !element ||
+            !rect
+        ) {
+            return;
+        }
+
+
+        const p =
+            padding ||
+            0;
+
+
+        element.style.left =
+            (
+                rect.left -
+                p
+            ) +
+            "px";
+
+
+        element.style.top =
+            (
+                rect.top -
+                p
+            ) +
+            "px";
+
+
+        element.style.width =
+            (
+                rect.width +
+                p * 2
+            ) +
+            "px";
+
+
+        element.style.height =
+            (
+                rect.height +
+                p * 2
+            ) +
+            "px";
+
+    }
+
+
+    function hidePeritoHighlight() {
+
+        if (!peritoDocument) {
+            return;
+        }
+
+
+        const focus =
+            peritoDocument
+                .getElementById(
+                    "valu-guide-focus"
+                );
+
+
+        const action =
+            peritoDocument
+                .getElementById(
+                    "valu-guide-action"
+                );
+
+
+        if (focus) {
+
+            focus.classList.remove(
+                "valu-show"
+            );
+
+        }
+
+
+        if (action) {
+
+            action.classList.remove(
+                "valu-show"
+            );
+
+        }
+
+    }
+
+
+    function showPeritoHighlight(
+        step
+    ) {
+
+        const resolved =
+            resolveStepElements(
+                step
+            );
+
+
+        if (
+            !resolved ||
+            !resolved.elements.length
+        ) {
+
+            return null;
+
+        }
+
+
+        const layer =
+            ensurePeritoGuideLayer();
+
+
+        if (!layer) {
+
+            return null;
+
+        }
+
+
+        const focusRect =
+            getUnionDocumentRect(
+                resolved.elements,
+                peritoWindow
+            );
+
+
+        if (!focusRect) {
+
+            return null;
+
+        }
+
+
+        /*
+           Reposicionamos el cuadro mientras está oculto y sin transición
+           geométrica. Así, al saltar rápido entre pasos, el marco no
+           "viaja" por la pantalla ni queda interpolando una zona anterior.
+        */
+        layer.focus.classList.remove(
+            "valu-show"
+        );
+
+        layer.focus.style.transition =
+            "none";
+
+
+        setOverlayRect(
+            layer.focus,
+            focusRect,
+            15
+        );
+
+
+        void layer.focus.offsetWidth;
+
+        layer.focus.style.transition =
+            "";
+
+
+        layer.focus.classList.add(
+            "valu-show"
+        );
+
+
+        layer.action.classList.remove(
+            "valu-show"
+        );
+
+
+        if (
+            resolved.actionElements.length
+        ) {
+
+            const actionRect =
+                getUnionDocumentRect(
+                    resolved.actionElements,
+                    peritoWindow
+                );
+
+
+            if (actionRect) {
+
+                layer.action.style.transition =
+                    "none";
+
+
+                setOverlayRect(
+                    layer.action,
+                    actionRect,
+                    8
+                );
+
+
+                void layer.action.offsetWidth;
+
+                layer.action.style.transition =
+                    "";
+
+
+                layer.action.classList.add(
+                    "valu-show"
+                );
+
+            }
+
+        }
+
+
+        return focusRect;
+
+    }
+
+
+    /* =========================================================
+       SCROLL REAL DE PERITO VIRTUAL
+       ========================================================= */
+
+    function scrollPeritoToRect(
+        rect
+    ) {
+
+        if (
+            !rect ||
+            !peritoWindow
+        ) {
+            return;
+        }
+
+
+        const viewportHeight =
+            peritoWindow.innerHeight;
+
+
+        let targetTop;
+
+
+        if (
+            rect.height >=
+            viewportHeight *
+            .72
+        ) {
+
+            targetTop =
+                rect.top -
+                72;
+
+        }
+
+        else {
+
+            targetTop =
+                rect.top +
+                rect.height /
+                2 -
+                viewportHeight /
+                2;
+
+        }
+
+
+        const maxScroll =
+            Math.max(
+                0,
+                peritoDocument
+                    .documentElement
+                    .scrollHeight -
+                viewportHeight
+            );
+
+
+        targetTop =
+            clamp(
+                targetTop,
+                0,
+                maxScroll
+            );
+
+
+        /*
+           IMPORTANTE: el tour usa desplazamiento inmediato.
+           Un scroll suave puede seguir ejecutándose aunque el usuario
+           pulse “Siguiente” varias veces y deja el marco entre dos pasos.
+           Al usar auto, cada clic reemplaza de forma determinista al anterior.
+        */
+        peritoWindow.scrollTo({
+            top:
+                targetTop,
+
+            left:
+                0,
+
+            behavior:
+                "auto"
+        });
+
+    }
+
+
+    async function focusCurrentStep(
+        step,
+        expectedTourRun,
+        expectedStepIndex
+    ) {
+
+        const thisFocusRun =
+            ++guideFocusRunId;
+
+
+        hidePeritoHighlight();
+
+
+        const resolved =
+            resolveStepElements(
+                step
+            );
+
+
+        if (
+            !resolved ||
+            !resolved.elements.length
+        ) {
+
+            return false;
+
+        }
+
+
+        const focusRect =
+            getUnionDocumentRect(
+                resolved.elements,
+                peritoWindow
+            );
+
+
+        if (!focusRect) {
+
+            return false;
+
+        }
+
+
+        /*
+           Para las secciones 3 y 4 usamos el título REAL únicamente
+           como destino de scroll. El rectángulo de resaltado se calcula
+           por separado con los campos reales. Esto evita que un contenedor
+           padre demasiado grande cambie el destino del desplazamiento.
+        */
+        let scrollRect =
+            focusRect;
+
+
+        if (
+            step.scrollAnchor
+        ) {
+
+            const scrollAnchorElement =
+                findBestTextElement(
+                    peritoDocument,
+                    peritoWindow,
+                    step.scrollAnchor
+                );
+
+
+            if (scrollAnchorElement) {
+
+                const anchorRect =
+                    scrollAnchorElement
+                        .getBoundingClientRect();
+
+
+                scrollRect =
+                    {
+                        left:
+                            anchorRect.left +
+                            peritoWindow.scrollX,
+
+                        top:
+                            anchorRect.top +
+                            peritoWindow.scrollY,
+
+                        right:
+                            anchorRect.right +
+                            peritoWindow.scrollX,
+
+                        bottom:
+                            anchorRect.bottom +
+                            peritoWindow.scrollY,
+
+                        width:
+                            anchorRect.width,
+
+                        height:
+                            Math.max(
+                                anchorRect.height,
+                                60
+                            )
+                    };
+
+            }
+
+        }
+
+
+        /*
+           Cancela cualquier desplazamiento suave anterior antes de
+           iniciar el del paso más reciente.
+        */
+        try {
+
+            peritoWindow.scrollTo({
+                top:
+                    peritoWindow.scrollY,
+
+                left:
+                    0,
+
+                behavior:
+                    "auto"
+            });
+
+        }
+
+        catch (error) {
+            /* Navegadores antiguos: no requiere acción. */
+        }
+
+
+        scrollPeritoToRect(
+            scrollRect
+        );
+
+
+        /*
+           Esperamos únicamente a que el navegador confirme dos frames
+           de renderizado. No dejamos temporizadores largos pendientes:
+           eso era lo que permitía que un paso antiguo reapareciera después
+           de varios clics rápidos.
+        */
+        await new Promise(
+            function (resolve) {
+
+                const raf =
+                    peritoWindow.requestAnimationFrame
+                        ? peritoWindow.requestAnimationFrame.bind(peritoWindow)
+                        : window.requestAnimationFrame.bind(window);
+
+                raf(
+                    function () {
+                        raf(resolve);
+                    }
+                );
+
+            }
+        );
+
+
+        /*
+           Si el usuario hizo varios clics rápidos, cualquier enfoque
+           anterior queda invalidado y NO puede volver a dibujar el
+           rectángulo verde sobre una sección vieja.
+        */
+        if (
+            mode !==
+                "perito" ||
+            thisFocusRun !==
+                guideFocusRunId ||
+            (
+                typeof expectedTourRun ===
+                    "number" &&
+                expectedTourRun !==
+                    tourRunId
+            ) ||
+            (
+                typeof expectedStepIndex ===
+                    "number" &&
+                expectedStepIndex !==
+                    currentStepIndex
+            )
+        ) {
+
+            return false;
+
+        }
+
+
+        /*
+           El paso 1 conserva el desplazamiento y el globo de Valu,
+           pero NO dibuja ningún recuadro ni línea sobre Perito Virtual.
+           Los demás pasos mantienen su resaltado normal.
+        */
+        if (
+            step.highlight ===
+                false
+        ) {
+
+            hidePeritoHighlight();
+
+            return true;
+
+        }
+
+
+        showPeritoHighlight(
+            step
+        );
+
+
+        return true;
+
+    }
+
+
+    /* =========================================================
+       ESPERAR A QUE LA APP INTERNA TERMINE DE RENDERIZAR
+       ========================================================= */
+
+    async function waitForPeritoReady() {
+
+        for (
+            let attempt = 0;
+            attempt < 40;
+            attempt++
+        ) {
+
+            const context =
+                getPeritoContext();
+
+
+            if (context) {
+
+                peritoDocument =
+                    context.doc;
+
+                peritoWindow =
+                    context.win;
+
+
+                const heading =
+                    findBestTextElement(
+                        peritoDocument,
+                        peritoWindow,
+                        "Ubicación Geográfica y Contexto"
+                    );
+
+
+                if (heading) {
+
+                    ensurePeritoGuideLayer();
+
+
+                    return true;
+
+                }
+
+            }
+
+
+            await wait(
+                250
+            );
+
+        }
+
+
+        return false;
+
+    }
+
+
+    /* =========================================================
+       VISIBILIDAD DE VALU Y MODOS DE GUÍA
+       ========================================================= */
+
+    function hideCoachCompletely() {
+
+        clearBubbleTimer();
+
+        coachBubble.classList.remove(
+            "visible"
+        );
+
+        coach.classList.remove(
+            "visible"
+        );
+
+        hidePeritoHighlight();
+
+    }
+
+
+    function hideCoachBubbleOnly() {
+
+        coachBubble.classList.remove(
+            "visible"
+        );
+
+        hidePeritoHighlight();
+
+        /*
+           La cabeza SE QUEDA flotando para que el usuario pueda
+           volver a abrir la guía en modo lectura.
+        */
+        coach.classList.add(
+            "visible"
+        );
+
+        showHead(
+            "c1"
+        );
+
+    }
+
+
+    function finishNarratedGuide() {
+
+        guideFinished =
+            true;
+
+        guideMode =
+            "review";
+
+        stopVoice();
+
+        hideCoachBubbleOnly();
+
+        /*
+           Al tocar la cabeza después de terminar, la revisión
+           comienza nuevamente en el mensaje 1, SIN voz.
+        */
+        currentStepIndex =
+            0;
+        headButton.setAttribute(
+            "aria-label",
+            "Volver a abrir la guía"
+        );
+
+    }
+
+    function prepareCoachUI(
+        step,
+        index,
+        review
+    ) {
+
+        coachStepLabel.textContent =
+            review
+                ?
+                step.label +
+                " · Revisión"
+                :
+                step.label;
+
+
+        coachText.textContent =
+            step.text;
+
+
+        coachPrev.disabled =
+            index ===
+            0;
+
+
+        coachNext.textContent =
+            index ===
+                tutorialSteps.length -
+                1
+                ?
+                (review
+                    ?
+                    "Cerrar"
+                    :
+                    "Listo")
+                :
+                "Siguiente";
+
+
+        /*
+           La guía dentro de Perito Virtual es ahora únicamente visual.
+           La voz de la introducción de Valu se conserva.
+        */
+        coach.classList.add(
+            "visible"
+        );
+
+
+        coachBubble.classList.add(
+            "visible"
+        );
+
+
+        syncValuViewport();
+
+
+        /* Cada paso de la guía empieza mostrando su encabezado. */
+        coachBubble.scrollTop =
+            0;
+
+    }
+
+
+    /* =========================================================
+       RECORRIDO GUIADO · SIN VOZ
+       Valu permanece visible durante los 6 mensajes.
+       El usuario avanza manualmente con "Siguiente".
+       ========================================================= */
+
+    async function showNarratedStep(
+        index
+    ) {
+
+        if (
+            mode !==
+                "perito" ||
+            index < 0 ||
+            index >=
+                tutorialSteps.length
+        ) {
+            return;
+        }
+
+
+        guideMode =
+            "narrated";
+
+        guideFinished =
+            false;
+
+
+        const thisTourRun =
+            tourRunId;
+
+
+        clearBubbleTimer();
+
+        /*
+           Importante:
+           la voz de la INTRO de Valu se conserva, pero la guía flotante
+           dentro de Perito Virtual ya no reproduce ningún audio.
+        */
+        stopVoice();
+
+        hidePeritoHighlight();
+
+
+        currentStepIndex =
+            index;
+
+
+        const step =
+            tutorialSteps[
+                index
+            ];
+
+
+        /*
+           Valu y el globo permanecen visibles. El avance es manual:
+           el usuario decide cuándo pasar con "Siguiente".
+        */
+        prepareCoachUI(
+            step,
+            index,
+            false
+        );
+
+
+        animateHead(
+            step.head
+        );
+
+
+        await focusCurrentStep(
+            step,
+            thisTourRun,
+            index
+        );
+
+
+        if (
+            mode !==
+                "perito" ||
+            thisTourRun !==
+                tourRunId ||
+            currentStepIndex !==
+                index
+        ) {
+            return;
+        }
+
+    }
+
+
+    /* =========================================================
+       REVISIÓN SOLO LECTURA
+       Sin audio y sin avance automático.
+       ========================================================= */
+
+    async function showReviewStep(
+        index
+    ) {
+
+        if (
+            mode !==
+                "perito" ||
+            index < 0 ||
+            index >=
+                tutorialSteps.length
+        ) {
+            return;
+        }
+
+
+        guideMode =
+            "review";
+
+        guideFinished =
+            true;
+
+
+        tourRunId++;
+
+        const thisTourRun =
+            tourRunId;
+
+        stopVoice();
+
+        clearBubbleTimer();
+
+        hidePeritoHighlight();
+
+
+        currentStepIndex =
+            index;
+
+
+        const step =
+            tutorialSteps[
+                index
+            ];
+
+
+        prepareCoachUI(
+            step,
+            index,
+            true
+        );
+
+
+        animateHead(
+            step.head
+        );
+
+
+        await focusCurrentStep(
+            step,
+            thisTourRun,
+            index
+        );
+
+    }
+
+
+    /* =========================================================
+       CONTROLES MANUALES
+       ========================================================= */
+
+    coachPrev.addEventListener(
+        "click",
+        function () {
+
+            /* Mata inmediatamente cualquier enfoque todavía pendiente. */
+            guideFocusRunId++;
+            hidePeritoHighlight();
+
+            if (
+                guideMode ===
+                "review"
+            ) {
+
+                showReviewStep(
+                    currentStepIndex -
+                    1
+                );
+
+                return;
+
+            }
+
+
+            tourRunId++;
+
+
+            showNarratedStep(
+                Math.max(
+                    0,
+                    currentStepIndex -
+                    1
+                )
+            );
+
+        }
+    );
+
+
+    coachNext.addEventListener(
+        "click",
+        function () {
+
+            /*
+               El último clic siempre gana. Si el usuario pulsa muy rápido,
+               ningún render anterior conserva permiso para pintar el marco.
+            */
+            guideFocusRunId++;
+            hidePeritoHighlight();
+
+            if (
+                guideMode ===
+                "review"
+            ) {
+
+                if (
+                    currentStepIndex ===
+                    tutorialSteps.length -
+                    1
+                ) {
+
+                    hideCoachBubbleOnly();
+
+                    return;
+
+                }
+
+
+                showReviewStep(
+                    currentStepIndex +
+                    1
+                );
+
+                return;
+
+            }
+
+
+            tourRunId++;
+
+            stopVoice();
+
+
+            if (
+                currentStepIndex ===
+                tutorialSteps.length -
+                1
+            ) {
+
+                finishNarratedGuide();
+
+                return;
+
+            }
+
+
+            showNarratedStep(
+                currentStepIndex +
+                1
+            );
+
+        }
+    );
+
+
+    coachClose.addEventListener(
+        "click",
+        function () {
+
+            /*
+               Cerrar la guía invalida de inmediato cualquier scroll o
+               resaltado pendiente. Así nunca queda una línea/recuadro
+               flotando sobre Perito Virtual al continuar por cuenta propia.
+            */
+            guideFocusRunId++;
+            tourRunId++;
+
+            stopVoice();
+            hidePeritoHighlight();
+
+
+            if (
+                guideMode ===
+                "review"
+            ) {
+
+                hideCoachBubbleOnly();
+
+                return;
+
+            }
+
+
+            guideFinished =
+                true;
+
+            guideMode =
+                "review";
+
+            currentStepIndex =
+                0;
+
+
+            hideCoachBubbleOnly();
+
+
+            headButton.setAttribute(
+                "aria-label",
+                "Volver a abrir la guía"
+            );
+
+        }
+    );
+    headButton.addEventListener(
+        "click",
+        function () {
+
+            /*
+               Una vez terminada la guía, tocar la cabeza abre el
+               recorrido completo en modo SOLO LECTURA.
+            */
+            if (
+                guideFinished ||
+                guideMode ===
+                    "review"
+            ) {
+
+                if (
+                    coachBubble.classList.contains(
+                        "visible"
+                    )
+                ) {
+
+                    hideCoachBubbleOnly();
+
+                    return;
+
+                }
+
+
+                showReviewStep(
+                    0
+                );
+
+            }
+
+        }
+    );
+
+
+    /* =========================================================
+       ENTRAR A PERITO
+       ========================================================= */
+
+    function enterPerito() {
+
+        mode =
+            "perito";
+
+
+        introRunId++;
+
+        tourRunId++;
+
+        guideFocusRunId++;
+
+
+        stopVoice();
+
+
+        intro.classList.add(
+            "valu-intro-leaving"
+        );
+
+
+        loading.classList.remove(
+            "hidden"
+        );
+
+
+        firstGuideShown =
+            false;
+
+        guideMode =
+            "narrated";
+
+        guideFinished =
+            false;
+
+
+        peritoDocument =
+            null;
+
+        peritoWindow =
+            null;
+
+
+        frame.src =
+            PERITO_URL;
+
+
+        setTimeout(
+            function () {
+
+                if (
+                    mode !==
+                    "perito"
+                ) {
+                    return;
+                }
+
+
+                intro.hidden =
+                    true;
+
+
+                peritoStage.hidden =
+                    false;
+
+
+                requestAnimationFrame(
+                    function () {
+
+                        peritoStage.classList.add(
+                            "active"
+                        );
+
+                    }
+                );
+
+            },
+            360
+        );
+
+    }
+
+
+    introNext.addEventListener(
+        "click",
+        advanceIntroMessage
+    );
+
+
+    startButton.addEventListener(
+        "click",
+        enterPerito
+    );
+
+
+    /* =========================================================
+       IFRAME CARGADO
+       ========================================================= */
+
+    frame.addEventListener(
+        "load",
+        async function () {
+
+            if (
+                mode !==
+                "perito"
+            ) {
+                return;
+            }
+
+
+            const ready =
+                await waitForPeritoReady();
+
+
+            loading.classList.add(
+                "hidden"
+            );
+
+
+            if (
+                !ready
+            ) {
+
+                console.error(
+                    "Valu no pudo localizar el formulario dentro de /perito-integrado/."
+                );
+
+
+                return;
+
+            }
+
+
+            if (
+                !firstGuideShown
+            ) {
+
+                firstGuideShown =
+                    true;
+
+
+                tourRunId++;
+
+
+                setTimeout(
+                    function () {
+
+                        showNarratedStep(
+                            0
+                        );
+
+                    },
+                    450
+                );
+
+            }
+
+        }
+    );
+
+
+    /* =========================================================
+       VOLVER AL INICIO
+       ========================================================= */
+
+    function returnToWelcome() {
+
+        mode =
+            "welcome";
+
+
+        introRunId++;
+
+        tourRunId++;
+
+
+        stopVoice();
+
+        clearBubbleTimer();
+
+        hideCoachCompletely();
+
+        resetIntroVisuals();
+
+
+        intro.hidden =
+            true;
+
+
+        peritoStage.classList.remove(
+            "active"
+        );
+
+
+        peritoStage.hidden =
+            true;
+
+
+        currentStepIndex =
+            0;
+
+        guideMode =
+            "narrated";
+
+        guideFinished =
+            false;
+
+
+        showHead(
+            "c1"
+        );
+
+
+        peritoDocument =
+            null;
+
+        peritoWindow =
+            null;
+
+
+        loading.classList.remove(
+            "hidden"
+        );
+
+
+        frame.src =
+            "about:blank";
+
+
+        welcome.hidden =
+            false;
+
+    }
+
+
+    resetNow.addEventListener(
+        "click",
+        returnToWelcome
+    );
+
+
+    /* =========================================================
+       BIENVENIDA -> INTRO
+       ========================================================= */
+
+    async function startFromWelcome() {
+
+        await unlockVoice();
+
+
+        mode =
+            "intro";
+
+
+        introRunId++;
+
+
+        const runId =
+            introRunId;
+
+
+        resetIntroVisuals();
+
+
+        welcome.classList.add(
+            "valu-welcome-leaving"
+        );
+
+
+        setTimeout(
+            function () {
+
+                if (
+                    mode !==
+                        "intro" ||
+                    introRunId !==
+                        runId
+                ) {
+                    return;
+                }
+
+
+                welcome.hidden =
+                    true;
+
+
+                welcome.classList.remove(
+                    "valu-welcome-leaving"
+                );
+
+
+                intro.hidden =
+                    false;
+
+
+                playIntro(
+                    runId
+                );
+
+            },
+            300
+        );
+
+    }
+
+
+    welcomeStart.addEventListener(
+        "click",
+        startFromWelcome
+    );
+
+
+    /* =========================================================
+       DEBUG / VERIFICACIÓN
+       =========================================================
+
+       No afecta al usuario.
+       Permite comprobar desde consola que los seis pasos
+       encuentran elementos reales.
+    */
+
+    window.ValuGuide =
+        {
+
+            debugResolveAll:
+                function () {
+
+                    if (
+                        !peritoDocument ||
+                        !peritoWindow
+                    ) {
+
+                        return {
+                            ok:
+                                false,
+
+                            error:
+                                "Perito Virtual aún no está listo."
+                        };
+
+                    }
+
+
+                    const results =
+                        tutorialSteps.map(
+                            step => {
+
+                                const resolved =
+                                    resolveStepElements(
+                                        step
+                                    );
+
+
+                                return {
+                                    label:
+                                        step.label,
+
+                                    found:
+                                        Boolean(
+                                            resolved &&
+                                            resolved.elements.length
+                                        ),
+
+                                    elements:
+                                        resolved
+                                            ?
+                                            resolved.elements.length
+                                            :
+                                            0,
+
+                                    actions:
+                                        resolved
+                                            ?
+                                            resolved.actionElements.length
+                                            :
+                                            0
+                                };
+
+                            }
+                        );
+
+
+                    return {
+                        ok:
+                            results.every(
+                                item =>
+                                    item.found
+                            ),
+
+                        results:
+                            results
+                    };
+
+                },
+
+            goToStep:
+                function (
+                    index
+                ) {
+
+                    tourRunId++;
+
+
+                    return showReviewStep(
+                        Number(
+                            index
+                        )
+                    );
+
+                }
+
+        };
+
+
+    /* =========================================================
+       ESTADO INICIAL
+       ========================================================= */
+
+    intro.hidden =
+        true;
+
+    peritoStage.hidden =
+        true;
+
+    welcome.hidden =
+        false;
+
+
+    resetIntroVisuals();
+
+    showHead(
+        "c1"
+    );
+
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#0d1729">
+    <meta name="description" content="Formulario para estimar el valor comercial de un inmueble.">
+    <title>Perito Virtual | Concepto de valor comercial</title>
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <main class="app-shell">
+        <header class="app-header">
+            <div class="brand-mark" aria-label="Appraiser"><span>A</span></div>
+            <div class="header-copy">
+                <div class="title-line">
+                    <h1>Perito Virtual</h1>
+                    <span class="edition-badge" aria-label="Primera edición">1A</span>
+                </div>
+                <p>Concepto Técnico de Valor Comercial</p>
+            </div>
+        </header>
+
+        <div id="draftNotice" class="draft-notice" role="status" hidden>
+            Recuperamos el borrador guardado en este dispositivo.
+            <button type="button" id="clearDraftTop">Descartar borrador</button>
+        </div>
+
+        <form id="appraisalForm" novalidate>
+            <section class="form-section" aria-labelledby="sectionLocation">
+                <div class="section-heading">
+                    <span class="section-number">1</span>
+                    <div>
+                        <h2 id="sectionLocation">Ubicación Geográfica y Contexto</h2>
+                        <p>Indica dónde se encuentra el inmueble.</p>
+                    </div>
+                </div>
+
+                <div class="field-grid two-columns">
+                    <label class="field-block">
+                        <span>Ciudad / Municipio <b>*</b></span>
+                        <input id="city" name="city" type="text" autocomplete="address-level2" placeholder="Ej: Bogotá" required>
+                        <small class="field-error">Ingresa la ciudad o municipio.</small>
+                    </label>
+                    <label class="field-block">
+                        <span>Barrio / Sector <b>*</b></span>
+                        <input id="neighborhood" name="neighborhood" type="text" autocomplete="address-level3" placeholder="Ej: Chapinero Alto" required>
+                        <small class="field-error">Ingresa el barrio o sector.</small>
+                    </label>
+                    <label class="field-block full-width">
+                        <span>Dirección Exacta <b>*</b></span>
+                        <input id="address" name="address" type="text" autocomplete="street-address" placeholder="Ej: Carrera 4 # 58-20, Edificio Los Pinos, Apto 402" required>
+                        <small class="field-error">Ingresa la dirección del inmueble.</small>
+                    </label>
+                </div>
+
+                <div class="location-tools">
+                    <label class="check-line">
+                        <input id="mapToggle" name="mapToggle" type="checkbox">
+                        <span>📍 Ajustar ubicación exacta en el mapa <em>(Opcional)</em></span>
+                    </label>
+                    <div id="locationPanel" class="location-panel" hidden>
+                        <div id="mapCanvas" class="map-canvas" role="application" tabindex="0" aria-label="Mapa esquemático. Haz clic para marcar la ubicación.">
+                            <span class="map-road road-one"></span>
+                            <span class="map-road road-two"></span>
+                            <span class="map-road road-three"></span>
+                            <button type="button" id="mapPin" class="map-pin" aria-label="Ubicación seleccionada" hidden>●</button>
+                            <p>Haz clic sobre el mapa para marcar un punto</p>
+                        </div>
+                        <div class="map-actions">
+                            <button type="button" id="useCurrentLocation" class="button-secondary">Usar mi ubicación</button>
+                            <button type="button" id="verifyLocation" class="button-secondary">Verificar Ubicación</button>
+                            <span id="locationStatus" role="status">Ubicación sin verificar</span>
+                        </div>
+                        <input id="latitude" name="latitude" type="hidden">
+                        <input id="longitude" name="longitude" type="hidden">
+                    </div>
+                </div>
+
+                <label class="field-block compact-field">
+                    <span>Estrato Socioeconómico <b>*</b></span>
+                    <select id="stratum" name="stratum" required>
+                        <option value="">Selecciona una opción</option>
+                        <option value="1">Estrato 1</option>
+                        <option value="2">Estrato 2</option>
+                        <option value="3">Estrato 3</option>
+                        <option value="4">Estrato 4</option>
+                        <option value="5">Estrato 5</option>
+                        <option value="6">Estrato 6</option>
+                    </select>
+                    <small class="field-error">Selecciona el estrato.</small>
+                </label>
+            </section>
+
+            <section class="form-section" aria-labelledby="sectionFeatures">
+                <div class="section-heading">
+                    <span class="section-number">2</span>
+                    <div>
+                        <h2 id="sectionFeatures">Características del Inmueble</h2>
+                        <p>Completa los datos físicos principales.</p>
+                    </div>
+                </div>
+
+                <div class="field-grid two-columns">
+                    <label class="field-block">
+                        <span>Tipo de Inmueble <b>*</b></span>
+                        <select id="propertyType" name="propertyType" required>
+                            <option value="">Selecciona una opción</option>
+                            <option value="apartment">Apartamento</option>
+                            <option value="house">Casa en conjunto</option>
+                        </select>
+                        <small class="field-error">Selecciona el tipo de inmueble.</small>
+                    </label>
+                    <label class="field-block">
+                        <span>Nivel de Acabados <b>*</b></span>
+                        <select id="finishes" name="finishes" required>
+                            <option value="">Selecciona una opción</option>
+                            <option value="basic">Básico</option>
+                            <option value="standard">Estándar</option>
+                            <option value="superior">Superior</option>
+                            <option value="luxury">Lujo</option>
+                        </select>
+                        <small class="field-error">Selecciona el nivel de acabados.</small>
+                    </label>
+                    <label class="field-block">
+                        <span>Estado del Inmueble <b>*</b></span>
+                        <select id="condition" name="condition" required>
+                            <option value="">Selecciona una opción</option>
+                            <option value="new">Nuevo</option>
+                            <option value="excellent">Usado · excelente</option>
+                            <option value="good">Usado · bueno</option>
+                            <option value="renovation">Requiere adecuaciones</option>
+                        </select>
+                        <small class="field-error">Selecciona el estado.</small>
+                    </label>
+                    <label class="field-block">
+                        <span>Edad Estructural <b>*</b></span>
+                        <div class="input-suffix"><input id="age" name="age" type="number" min="0" max="150" step="1" placeholder="Ej: 8" required><span>años</span></div>
+                        <small class="field-error">Ingresa una edad entre 0 y 150 años.</small>
+                    </label>
+                    <label class="field-block">
+                        <span>Área Privada <b>*</b></span>
+                        <div class="input-suffix"><input id="privateArea" name="privateArea" type="number" min="15" max="5000" step="0.01" placeholder="Ej: 84" required><span>m²</span></div>
+                        <small class="field-error">Ingresa un área entre 15 y 5.000 m².</small>
+                    </label>
+                    <label class="field-block">
+                        <span>Área Libre / Patios / Balcones</span>
+                        <div class="input-suffix"><input id="freeArea" name="freeArea" type="number" min="0" max="5000" step="0.01" value="0"><span>m²</span></div>
+                        <small class="field-error">Ingresa un valor válido.</small>
+                    </label>
+                    <label class="field-block">
+                        <span>Parqueaderos</span>
+                        <input id="parking" name="parking" type="number" min="0" max="20" step="1" value="0">
+                        <small class="field-error">Ingresa un número entre 0 y 20.</small>
+                    </label>
+                    <label class="field-block">
+                        <span>Tiene Depósito</span>
+                        <select id="storage" name="storage">
+                            <option value="no">No</option>
+                            <option value="yes">Sí</option>
+                        </select>
+                    </label>
+                </div>
+            </section>
+
+            <section class="form-section" aria-labelledby="sectionRooms">
+                <div class="section-heading">
+                    <span class="section-number">3</span>
+                    <div>
+                        <h2 id="sectionRooms">Habitaciones y Baños</h2>
+                        <p>Registra las dependencias y dotaciones disponibles.</p>
+                    </div>
+                </div>
+
+                <div class="field-grid three-columns">
+                    <label class="field-block"><span>Alcobas Principales <b>*</b></span><input id="bedrooms" name="bedrooms" type="number" min="0" max="20" step="1" value="3" required><small class="field-error">Ingresa un número válido.</small></label>
+                    <label class="field-block"><span>Baños Privados <b>*</b></span><input id="privateBathrooms" name="privateBathrooms" type="number" min="0" max="20" step="1" value="2" required><small class="field-error">Ingresa un número válido.</small></label>
+                    <label class="field-block"><span>Baños Sociales</span><input id="socialBathrooms" name="socialBathrooms" type="number" min="0" max="20" step="1" value="1"><small class="field-error">Ingresa un número válido.</small></label>
+                </div>
+
+                <div class="toggle-grid">
+                    <label class="toggle-card"><input name="gated" type="checkbox"><span class="toggle-ui"></span><span>Ubicado en Villa/Conjunto Cerrado</span></label>
+                    <label class="toggle-card"><input name="serviceRoom" type="checkbox"><span class="toggle-ui"></span><span>Cuarto de Servicio</span></label>
+                    <label class="toggle-card"><input name="serviceBathroom" type="checkbox"><span class="toggle-ui"></span><span>Baño de Servicio</span></label>
+                </div>
+
+                <fieldset class="amenities">
+                    <legend>Características Adicionales (Amenities)</legend>
+                    <div class="chip-grid">
+                        <label><input name="amenities" value="elevator" type="checkbox"><span>Ascensor</span></label>
+                        <label><input name="amenities" value="security" type="checkbox"><span>Vigilancia</span></label>
+                        <label><input name="amenities" value="pool" type="checkbox"><span>Piscina</span></label>
+                        <label><input name="amenities" value="gym" type="checkbox"><span>Gimnasio</span></label>
+                        <label><input name="amenities" value="social" type="checkbox"><span>Salón social</span></label>
+                        <label><input name="amenities" value="green" type="checkbox"><span>Zonas verdes</span></label>
+                    </div>
+                </fieldset>
+            </section>
+
+            <section class="form-section" aria-labelledby="sectionCommercial">
+                <div class="section-heading">
+                    <span class="section-number">4</span>
+                    <div>
+                        <h2 id="sectionCommercial">Información Comercial y Legal</h2>
+                        <p>Estos datos afinan el concepto y permiten identificar su propósito.</p>
+                    </div>
+                </div>
+
+                <div class="field-grid two-columns">
+                    <label class="field-block">
+                        <span>Tipo de Titulación <b>*</b></span>
+                        <select id="titleType" name="titleType" required><option value="">Selecciona una opción</option><option>Propiedad plena</option><option>Patrimonio autónomo</option><option>Posesión</option><option>Otro</option></select>
+                        <small class="field-error">Selecciona el tipo de titulación.</small>
+                    </label>
+                    <label class="field-block">
+                        <span>Propósito del Avalúo <b>*</b></span>
+                        <select id="purpose" name="purpose" required><option value="">Selecciona una opción</option><option>Venta</option><option>Compra</option><option>Crédito hipotecario</option><option>Actualización patrimonial</option><option>Otro</option></select>
+                        <small class="field-error">Selecciona el propósito.</small>
+                    </label>
+                    <label class="field-block">
+                        <span>Último Avalúo Catastral</span>
+                        <div class="input-prefix"><span>$</span><input id="cadastralValue" name="cadastralValue" type="number" min="0" step="1000" placeholder="Opcional"></div>
+                    </label>
+                    <label class="field-block">
+                        <span>Valor de Administración</span>
+                        <div class="input-prefix"><span>$</span><input id="administration" name="administration" type="number" min="0" step="1000" placeholder="Opcional"></div>
+                    </label>
+                    <label class="field-block full-width">
+                        <span>Correo Destinatario para el PDF Automático</span>
+                        <input id="email" name="email" type="email" autocomplete="email" placeholder="nombre@correo.com">
+                        <small class="field-help">En esta versión local el concepto se descarga desde el navegador. El envío se habilitará al conectar el servicio de correo.</small>
+                        <small class="field-error">Ingresa un correo válido.</small>
+                    </label>
+                    <label class="field-block full-width file-field">
+                        <span>Evidencia Fotográfica de Fachadas y Acabados</span>
+                        <input id="photos" name="photos" type="file" accept="image/jpeg,image/png,image/webp" multiple>
+                        <span class="file-drop"><strong>Seleccionar fotografías</strong><small>JPG, PNG o WEBP · máximo 8 archivos</small></span>
+                        <small id="fileSummary" class="field-help">No hay fotografías seleccionadas.</small>
+                        <small class="field-error">Selecciona máximo 8 fotografías válidas.</small>
+                    </label>
+                </div>
+            </section>
+
+            <div id="formErrorSummary" class="error-summary" role="alert" tabindex="-1" hidden>
+                Revisa los campos marcados antes de continuar.
+            </div>
+
+            <div class="form-actions">
+                <button type="button" id="clearForm" class="button-ghost">Limpiar formulario</button>
+                <span id="saveStatus" class="save-status" role="status">Los cambios se guardan en este dispositivo.</span>
+                <button type="submit" class="button-primary">Calcular valor estimado <span>→</span></button>
+            </div>
+        </form>
+
+        <section id="resultPanel" class="result-panel" aria-labelledby="resultTitle" hidden>
+            <div class="result-kicker">Concepto preliminar</div>
+            <h2 id="resultTitle">Valor comercial estimado</h2>
+            <p id="resultAddress" class="result-address"></p>
+            <div class="value-card">
+                <span>Estimación central</span>
+                <strong id="estimatedValue"></strong>
+                <small id="estimatedRange"></small>
+            </div>
+            <div class="result-grid">
+                <div><span>Valor de referencia por m²</span><strong id="squareMeterValue"></strong></div>
+                <div><span>Área ponderada</span><strong id="weightedArea"></strong></div>
+                <div><span>Nivel de orientación</span><strong>Preliminar</strong></div>
+            </div>
+            <p class="result-disclaimer">Este resultado es una orientación comercial generada con los datos suministrados. No reemplaza un avalúo certificado, una visita técnica ni un estudio de mercado específico.</p>
+            <div class="result-actions">
+                <button type="button" id="editResult" class="button-secondary">Editar datos</button>
+                <button type="button" id="printResult" class="button-primary">Guardar / imprimir PDF</button>
+                <button type="button" id="emailResult" class="button-primary">Enviar PDF por correo</button>
+            </div>
+            <p id="emailStatus" class="email-status" role="status" aria-live="polite"></p>
+        </section>
+    </main>
+
+    <script src="config.js?v=1.0.0"></script>
+    <script src="app.js"></script>
+</body>
+</html>

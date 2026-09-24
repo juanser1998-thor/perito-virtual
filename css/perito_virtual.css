@@ -1,0 +1,2536 @@
+/* ==========================================================
+VALU · PERITO VIRTUAL · APPRAISER
+VERSIÓN LOCAL AUTÓNOMA
+========================================================= */
+
+
+/* ==========================================================
+0. FULLSCREEN WORDPRESS
+========================================================= */
+
+html.valu-kiosk-document,
+body.valu-kiosk-page {
+    width: 100% !important;
+    height: 100% !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    overflow: hidden !important;
+
+    background:
+        #06151b !important;
+
+    font-family:
+        Inter,
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+}
+
+
+body.valu-kiosk-page #wpadminbar,
+body.valu-kiosk-page #masthead,
+body.valu-kiosk-page #colophon,
+body.valu-kiosk-page .site-header,
+body.valu-kiosk-page .site-footer,
+body.valu-kiosk-page .elementor-location-header,
+body.valu-kiosk-page .elementor-location-footer {
+    display: none !important;
+}
+
+
+#valuExperience {
+    position: fixed !important;
+
+    inset: 0 !important;
+
+    z-index:
+        2147483000 !important;
+
+    width:
+        100vw !important;
+
+    height:
+        100dvh !important;
+
+    margin:
+        0 !important;
+
+    padding:
+        0 !important;
+
+    overflow:
+        hidden !important;
+
+    background:
+        #06151b;
+
+    font-family:
+        inherit;
+}
+
+
+#valuExperience,
+#valuExperience * {
+    box-sizing:
+        border-box;
+}
+
+
+#valuExperience button {
+    font-family:
+        inherit;
+}
+
+
+/* WordPress/Elementor no debe forzar visibles los controles ocultos. */
+#peritoStage [hidden] {
+    display: none !important;
+}
+
+
+#valuWelcome[hidden],
+#valuIntro[hidden],
+#peritoStage[hidden] {
+    display:
+        none !important;
+}
+
+
+/* ==========================================================
+1. BIENVENIDA · ESTÉTICA TECNOLÓGICA
+========================================================= */
+
+#valuWelcome {
+    position: absolute;
+    inset: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    padding:
+        40px 24px;
+
+    background:
+        radial-gradient(
+            circle at 50% 42%,
+            rgba(32, 201, 181, .16),
+            transparent 33%
+        ),
+        radial-gradient(
+            circle at 84% 28%,
+            rgba(31, 128, 180, .13),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 16% 82%,
+            rgba(45, 83, 155, .14),
+            transparent 32%
+        ),
+        linear-gradient(
+            135deg,
+            #041319 0%,
+            #08242c 52%,
+            #06171d 100%
+        );
+
+    transition:
+        opacity .32s ease,
+        transform .32s ease;
+
+    isolation:
+        isolate;
+}
+
+
+/* Cuadrícula técnica de fondo */
+#valuWelcome::before {
+    content: "";
+
+    position: absolute;
+    inset: -20%;
+
+    z-index: 0;
+
+    background-image:
+        linear-gradient(
+            rgba(74, 221, 207, .055) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(74, 221, 207, .055) 1px,
+            transparent 1px
+        );
+
+    background-size:
+        46px 46px;
+
+    transform:
+        perspective(850px)
+        rotateX(64deg)
+        translateY(22%);
+
+    transform-origin:
+        center 70%;
+
+    opacity:
+        .55;
+
+    -webkit-mask-image:
+        radial-gradient(
+            ellipse at center,
+            #000 0%,
+            rgba(0, 0, 0, .72) 44%,
+            transparent 78%
+        );
+
+    mask-image:
+        radial-gradient(
+            ellipse at center,
+            #000 0%,
+            rgba(0, 0, 0, .72) 44%,
+            transparent 78%
+        );
+
+    pointer-events:
+        none;
+
+    animation:
+        valuGridDrift
+        14s
+        linear
+        infinite;
+}
+
+
+/* Barrido luminoso muy sutil */
+#valuWelcome::after {
+    content: "";
+
+    position: absolute;
+
+    z-index: 1;
+
+    left:
+        8%;
+
+    right:
+        8%;
+
+    top:
+        -12%;
+
+    height:
+        2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(74, 221, 207, .05),
+            rgba(112, 242, 230, .58),
+            rgba(74, 221, 207, .05),
+            transparent
+        );
+
+    filter:
+        blur(.2px);
+
+    box-shadow:
+        0 0 20px
+        rgba(32, 201, 181, .22);
+
+    opacity:
+        .6;
+
+    pointer-events:
+        none;
+
+    animation:
+        valuWelcomeScan
+        7.5s
+        ease-in-out
+        infinite;
+}
+
+
+#valuWelcome.valu-welcome-leaving {
+    opacity: 0;
+
+    transform:
+        scale(.985);
+
+    pointer-events:
+        none;
+}
+
+
+#valuWelcome .valu-welcome-glow {
+    position: absolute;
+
+    z-index: 0;
+
+    width:
+        min(720px, 82vw);
+
+    height:
+        min(720px, 82vw);
+
+    border-radius:
+        50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(32, 201, 181, .12) 0%,
+            rgba(32, 201, 181, .045) 38%,
+            transparent 70%
+        );
+
+    filter:
+        blur(36px);
+
+    pointer-events:
+        none;
+
+    animation:
+        valuWelcomeGlow
+        5.5s
+        ease-in-out
+        infinite;
+}
+
+
+/* Núcleo tecnológico decorativo detrás de la tarjeta */
+#valuWelcome .valu-welcome-tech-shell {
+    position: absolute;
+
+    z-index: 1;
+
+    width:
+        min(560px, 54vw);
+
+    aspect-ratio:
+        1;
+
+    right:
+        clamp(-150px, 2vw, 32px);
+
+    top:
+        50%;
+
+    transform:
+        translateY(-50%);
+
+    opacity:
+        .46;
+
+    pointer-events:
+        none;
+}
+
+
+#valuWelcome .valu-tech-orbit,
+#valuWelcome .valu-tech-core,
+#valuWelcome .valu-tech-node {
+    position: absolute;
+
+    left:
+        50%;
+
+    top:
+        50%;
+
+    border-radius:
+        50%;
+}
+
+
+#valuWelcome .valu-tech-orbit {
+    border:
+        1px solid
+        rgba(89, 230, 217, .28);
+
+    box-shadow:
+        inset 0 0 26px
+        rgba(32, 201, 181, .035),
+        0 0 26px
+        rgba(32, 201, 181, .055);
+}
+
+
+#valuWelcome .valu-tech-orbit::before,
+#valuWelcome .valu-tech-orbit::after {
+    content: "";
+
+    position: absolute;
+
+    width:
+        7px;
+
+    height:
+        7px;
+
+    border-radius:
+        50%;
+
+    background:
+        #5ae3d6;
+
+    box-shadow:
+        0 0 14px
+        rgba(90, 227, 214, .85);
+}
+
+
+#valuWelcome .valu-tech-orbit::before {
+    left:
+        12%;
+
+    top:
+        18%;
+}
+
+
+#valuWelcome .valu-tech-orbit::after {
+    right:
+        10%;
+
+    bottom:
+        22%;
+}
+
+
+#valuWelcome .valu-tech-orbit-1 {
+    width:
+        100%;
+
+    height:
+        100%;
+
+    margin:
+        -50% 0 0 -50%;
+
+    border-style:
+        dashed;
+
+    animation:
+        valuOrbitSpin
+        28s
+        linear
+        infinite;
+}
+
+
+#valuWelcome .valu-tech-orbit-2 {
+    width:
+        74%;
+
+    height:
+        74%;
+
+    margin:
+        -37% 0 0 -37%;
+
+    border-color:
+        rgba(88, 176, 232, .26);
+
+    animation:
+        valuOrbitSpinReverse
+        20s
+        linear
+        infinite;
+}
+
+
+#valuWelcome .valu-tech-orbit-3 {
+    width:
+        49%;
+
+    height:
+        49%;
+
+    margin:
+        -24.5% 0 0 -24.5%;
+
+    border-color:
+        rgba(111, 240, 228, .38);
+
+    animation:
+        valuOrbitSpin
+        13s
+        linear
+        infinite;
+}
+
+
+#valuWelcome .valu-tech-core {
+    width:
+        23%;
+
+    height:
+        23%;
+
+    margin:
+        -11.5% 0 0 -11.5%;
+
+    background:
+        radial-gradient(
+            circle at 38% 34%,
+            rgba(222, 255, 252, .95),
+            rgba(90, 227, 214, .72) 16%,
+            rgba(32, 201, 181, .26) 36%,
+            rgba(5, 35, 43, .12) 68%,
+            transparent 72%
+        );
+
+    box-shadow:
+        0 0 38px
+        rgba(32, 201, 181, .27);
+
+    animation:
+        valuCorePulse
+        3.2s
+        ease-in-out
+        infinite;
+}
+
+
+#valuWelcome .valu-tech-node {
+    width:
+        9px;
+
+    height:
+        9px;
+
+    background:
+        rgba(127, 244, 233, .95);
+
+    box-shadow:
+        0 0 18px
+        rgba(88, 230, 216, .75);
+
+    animation:
+        valuNodePulse
+        2.8s
+        ease-in-out
+        infinite;
+}
+
+
+#valuWelcome .valu-tech-node-1 {
+    left:
+        17%;
+
+    top:
+        31%;
+}
+
+
+#valuWelcome .valu-tech-node-2 {
+    left:
+        80%;
+
+    top:
+        37%;
+
+    animation-delay:
+        .65s;
+}
+
+
+#valuWelcome .valu-tech-node-3 {
+    left:
+        69%;
+
+    top:
+        78%;
+
+    animation-delay:
+        1.1s;
+}
+
+
+#valuWelcome .valu-welcome-card {
+    position: relative;
+
+    z-index: 3;
+
+    width:
+        min(820px, 92vw);
+
+    padding:
+        54px 58px 42px;
+
+    text-align:
+        center;
+
+    overflow:
+        hidden;
+
+    border:
+        1px solid
+        rgba(97, 232, 220, .20);
+
+    border-radius:
+        30px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(5, 26, 33, .88),
+            rgba(5, 22, 28, .70)
+        );
+
+    box-shadow:
+        0 30px 90px
+        rgba(0, 0, 0, .36),
+        inset 0 1px 0
+        rgba(255, 255, 255, .045),
+        0 0 0 1px
+        rgba(32, 201, 181, .025);
+
+    backdrop-filter:
+        blur(18px)
+        saturate(125%);
+
+    -webkit-backdrop-filter:
+        blur(18px)
+        saturate(125%);
+}
+
+
+/* Línea de energía superior */
+#valuWelcome .valu-welcome-card::before {
+    content: "";
+
+    position: absolute;
+
+    left:
+        11%;
+
+    right:
+        11%;
+
+    top:
+        0;
+
+    height:
+        1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(105, 242, 228, .85),
+            transparent
+        );
+
+    box-shadow:
+        0 0 18px
+        rgba(32, 201, 181, .35);
+}
+
+
+/* Luz interna de la tarjeta */
+#valuWelcome .valu-welcome-card::after {
+    content: "";
+
+    position: absolute;
+
+    z-index:
+        -1;
+
+    width:
+        300px;
+
+    height:
+        300px;
+
+    right:
+        -120px;
+
+    top:
+        -150px;
+
+    border-radius:
+        50%;
+
+    background:
+        rgba(32, 201, 181, .065);
+
+    filter:
+        blur(26px);
+
+    pointer-events:
+        none;
+}
+
+
+#valuWelcome .valu-welcome-status {
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    gap:
+        8px;
+
+    margin-bottom:
+        18px;
+
+    padding:
+        7px 12px;
+
+    border:
+        1px solid
+        rgba(100, 235, 223, .15);
+
+    border-radius:
+        999px;
+
+    background:
+        rgba(32, 201, 181, .055);
+
+    color:
+        rgba(221, 250, 247, .76);
+
+    font-size:
+        11px;
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        .08em;
+
+    text-transform:
+        uppercase;
+}
+
+
+#valuWelcome .valu-status-dot {
+    width:
+        7px;
+
+    height:
+        7px;
+
+    border-radius:
+        50%;
+
+    background:
+        #4ee1d2;
+
+    box-shadow:
+        0 0 12px
+        rgba(78, 225, 210, .8);
+
+    animation:
+        valuStatusPulse
+        1.8s
+        ease-in-out
+        infinite;
+}
+
+
+#valuWelcome .valu-welcome-kicker {
+    margin-bottom:
+        14px;
+
+    color:
+        #4ad8ca;
+
+    font-size:
+        12px;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        .18em;
+
+    text-transform:
+        uppercase;
+}
+
+
+#valuWelcome .valu-welcome-title {
+    max-width:
+        690px;
+
+    margin:
+        0 auto;
+
+    color:
+        #fff;
+
+    font-size:
+        clamp(38px, 5.15vw, 68px);
+
+    font-weight:
+        760;
+
+    line-height:
+        1.02;
+
+    letter-spacing:
+        -.04em;
+}
+
+
+#valuWelcome .valu-welcome-title span {
+    color:
+        #76e9de;
+
+    text-shadow:
+        0 0 26px
+        rgba(32, 201, 181, .17);
+}
+
+
+#valuWelcome .valu-welcome-subtitle {
+    max-width:
+        560px;
+
+    margin:
+        20px auto 0;
+
+    color:
+        rgba(231, 243, 246, .72);
+
+    font-size:
+        clamp(16px, 1.8vw, 20px);
+
+    line-height:
+        1.5;
+}
+
+
+
+
+#valuWelcome .valu-welcome-start {
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    gap:
+        12px;
+
+    min-width:
+        220px;
+
+    margin-top:
+        30px;
+
+    padding:
+        15px 24px 15px 31px;
+
+    border:
+        1px solid
+        rgba(121, 245, 233, .22);
+
+    border-radius:
+        999px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #20c9b5,
+            #118d97
+        );
+
+    color:
+        #fff;
+
+    font-size:
+        17px;
+
+    font-weight:
+        760;
+
+    cursor:
+        pointer;
+
+    box-shadow:
+        0 14px 38px
+        rgba(32, 201, 181, .20),
+        inset 0 1px 0
+        rgba(255, 255, 255, .18);
+
+    transition:
+        transform .22s ease,
+        box-shadow .22s ease,
+        filter .22s ease;
+}
+
+
+#valuWelcome .valu-welcome-start:hover {
+    transform:
+        translateY(-2px);
+
+    filter:
+        brightness(1.04);
+
+    box-shadow:
+        0 18px 45px
+        rgba(32, 201, 181, .27),
+        inset 0 1px 0
+        rgba(255, 255, 255, .18);
+}
+
+
+#valuWelcome .valu-welcome-start:active {
+    transform:
+        translateY(0)
+        scale(.985);
+}
+
+
+#valuWelcome .valu-welcome-arrow {
+    display:
+        grid;
+
+    place-items:
+        center;
+
+    width:
+        28px;
+
+    height:
+        28px;
+
+    border-radius:
+        50%;
+
+    background:
+        rgba(4, 26, 31, .18);
+
+    font-size:
+        16px;
+
+    transition:
+        transform .22s ease;
+}
+
+
+#valuWelcome .valu-welcome-start:hover .valu-welcome-arrow {
+    transform:
+        translateX(3px);
+}
+
+
+#valuWelcome .valu-welcome-hud {
+    display: flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    gap:
+        10px;
+
+    margin-top:
+        27px;
+
+    color:
+        rgba(161, 203, 207, .42);
+
+    font-size:
+        9px;
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        .18em;
+}
+
+
+#valuWelcome .valu-welcome-hud i {
+    display:
+        block;
+
+    width:
+        34px;
+
+    height:
+        1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(75, 212, 199, .48),
+            transparent
+        );
+}
+
+
+@keyframes valuGridDrift {
+
+    0% {
+        background-position:
+            0 0,
+            0 0;
+    }
+
+    100% {
+        background-position:
+            46px 46px,
+            46px 46px;
+    }
+
+}
+
+
+@keyframes valuWelcomeScan {
+
+    0%,
+    12% {
+        top:
+            -10%;
+
+        opacity:
+            0;
+    }
+
+    24% {
+        opacity:
+            .55;
+    }
+
+    72% {
+        opacity:
+            .42;
+    }
+
+    88%,
+    100% {
+        top:
+            108%;
+
+        opacity:
+            0;
+    }
+
+}
+
+
+@keyframes valuWelcomeGlow {
+
+    0%,
+    100% {
+        transform:
+            scale(.96);
+
+        opacity:
+            .72;
+    }
+
+    50% {
+        transform:
+            scale(1.06);
+
+        opacity:
+            1;
+    }
+
+}
+
+
+@keyframes valuOrbitSpin {
+
+    from {
+        transform:
+            rotate(0deg);
+    }
+
+    to {
+        transform:
+            rotate(360deg);
+    }
+
+}
+
+
+@keyframes valuOrbitSpinReverse {
+
+    from {
+        transform:
+            rotate(360deg);
+    }
+
+    to {
+        transform:
+            rotate(0deg);
+    }
+
+}
+
+
+@keyframes valuCorePulse {
+
+    0%,
+    100% {
+        transform:
+            scale(.94);
+
+        opacity:
+            .74;
+    }
+
+    50% {
+        transform:
+            scale(1.06);
+
+        opacity:
+            1;
+    }
+
+}
+
+
+@keyframes valuNodePulse {
+
+    0%,
+    100% {
+        transform:
+            scale(.78);
+
+        opacity:
+            .42;
+    }
+
+    50% {
+        transform:
+            scale(1.12);
+
+        opacity:
+            1;
+    }
+
+}
+
+
+@keyframes valuStatusPulse {
+
+    0%,
+    100% {
+        opacity:
+            .48;
+    }
+
+    50% {
+        opacity:
+            1;
+    }
+
+}
+
+
+/* ==========================================================
+2. INTRO
+========================================================= */
+
+#valuIntro {
+    position: absolute;
+    inset: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    padding:
+        30px;
+
+    background:
+        radial-gradient(
+            circle at 25% 45%,
+            rgba(20, 196, 177, .13),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #06151b 0%,
+            #0a252c 55%,
+            #07191e 100%
+        );
+
+    opacity: 1;
+
+    transition:
+        opacity .4s ease,
+        transform .4s ease;
+}
+
+
+#valuIntro.valu-intro-leaving {
+    opacity: 0;
+
+    transform:
+        translateY(-8px);
+
+    pointer-events:
+        none;
+}
+
+
+#valuIntro .valu-content {
+    position: relative;
+
+    z-index: 2;
+
+    width: 100%;
+
+    max-width:
+        1250px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap:
+        55px;
+}
+
+
+#valuIntro .valu-float {
+    position: relative;
+
+    flex:
+        0 0 min(500px, 42vw);
+
+    width:
+        min(500px, 42vw);
+
+    height:
+        650px;
+
+    opacity: 0;
+
+    transition:
+        opacity .7s ease;
+
+    animation:
+        valuPermanentFloat
+        4.2s
+        ease-in-out
+        infinite;
+}
+
+
+#valuIntro .valu-float.visible {
+    opacity: 1;
+}
+
+
+@keyframes valuPermanentFloat {
+
+    0%,
+    100% {
+        transform:
+            translate3d(0, 0, 0);
+    }
+
+    50% {
+        transform:
+            translate3d(0, -10px, 0);
+    }
+
+}
+
+
+#valuIntro .valu-stage {
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+
+    transition:
+        transform .5s
+        cubic-bezier(.22, .61, .36, 1);
+}
+
+
+#valuIntro .valu-image {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    object-position:
+        center;
+
+    opacity: 0;
+
+    transform:
+        none !important;
+
+    pointer-events:
+        none;
+
+    user-select:
+        none;
+
+    transition:
+        opacity .055s linear;
+}
+
+
+#valuIntro .valu-image.active {
+    opacity: 1;
+}
+
+
+#valuIntro .valu-stage.gesture-hello {
+    transform:
+        translate3d(-2px, -2px, 0)
+        rotate(-.6deg);
+}
+
+
+#valuIntro .valu-stage.gesture-welcome {
+    transform:
+        translate3d(3px, 0, 0)
+        rotate(.5deg);
+}
+
+
+#valuIntro .valu-stage.gesture-explain {
+    transform:
+        translate3d(0, -3px, 0);
+}
+
+
+#valuIntro .valu-stage.gesture-property {
+    transform:
+        translate3d(-4px, 1px, 0)
+        rotate(-.7deg);
+}
+
+
+#valuIntro .valu-stage.gesture-start {
+    transform:
+        translate3d(3px, -1px, 0)
+        rotate(.4deg);
+}
+
+
+#valuIntro .valu-dialogue {
+    flex:
+        1 1 520px;
+
+    width:
+        min(560px, 50vw);
+
+    min-width: 0;
+
+    display: flex;
+
+    flex-direction:
+        column;
+
+    gap:
+        12px;
+
+    opacity: 0;
+
+    transform:
+        translateY(12px);
+
+    transition:
+        opacity .45s ease,
+        transform .45s ease;
+}
+
+
+#valuIntro .valu-dialogue.visible {
+    opacity: 1;
+
+    transform:
+        translateY(0);
+}
+
+
+#valuIntro .valu-name {
+    margin:
+        0 0 4px 4px;
+
+    color:
+        #20c9b5;
+
+    font-size:
+        14px;
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        .09em;
+
+    text-transform:
+        uppercase;
+}
+
+
+#valuIntro .valu-bubble {
+    position: relative;
+
+    width:
+        fit-content;
+
+    max-width:
+        100%;
+
+    padding:
+        14px 19px;
+
+    background:
+        rgba(255, 255, 255, .09);
+
+    border:
+        1px solid
+        rgba(255, 255, 255, .15);
+
+    border-radius:
+        7px 19px 19px 19px;
+
+    color:
+        #fff;
+
+    font-size:
+        17px;
+
+    line-height:
+        1.5;
+
+    opacity: 0;
+
+    transform:
+        translateX(16px)
+        translateY(4px);
+
+    transition:
+        opacity .34s ease,
+        transform .34s ease;
+}
+
+
+#valuIntro .valu-bubble.visible {
+    opacity: 1;
+
+    transform:
+        translateX(0)
+        translateY(0);
+}
+
+
+#valuIntro .valu-bubble::before {
+    content: "";
+
+    position: absolute;
+
+    left:
+        -7px;
+
+    top:
+        15px;
+
+    width:
+        14px;
+
+    height:
+        14px;
+
+    background:
+        rgba(255, 255, 255, .09);
+
+    transform:
+        rotate(45deg);
+}
+
+
+#valuIntro .valu-cursor {
+    display:
+        inline-block;
+
+    width:
+        2px;
+
+    height:
+        1em;
+
+    margin-left:
+        4px;
+
+    vertical-align:
+        -2px;
+
+    background:
+        #20c9b5;
+
+    animation:
+        valuCursorBlink
+        .75s
+        infinite;
+}
+
+
+@keyframes valuCursorBlink {
+
+    0%,
+    48% {
+        opacity:
+            1;
+    }
+
+    49%,
+    100% {
+        opacity:
+            0;
+    }
+
+}
+
+
+#valuIntro .valu-start {
+    align-self:
+        flex-start;
+
+    min-width:
+        190px;
+
+    margin-top:
+        10px;
+
+    padding:
+        15px 38px;
+
+    border: 0;
+
+    border-radius:
+        40px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #20c9b5,
+            #10878f
+        );
+
+    color:
+        #fff;
+
+    font-size:
+        18px;
+
+    font-weight:
+        700;
+
+    cursor:
+        pointer;
+
+    opacity: 0;
+
+    transform:
+        translateY(8px);
+
+    pointer-events:
+        none;
+
+    transition:
+        opacity .38s ease,
+        transform .38s ease;
+}
+
+
+#valuIntro .valu-start.visible {
+    opacity: 1;
+
+    transform:
+        translateY(0);
+
+    pointer-events:
+        auto;
+}
+
+
+/* ==========================================================
+3. PERITO VIRTUAL
+========================================================= */
+
+#peritoStage {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    overflow: hidden;
+
+    background:
+        #081522;
+
+    opacity: 0;
+
+    transition:
+        opacity .35s ease;
+}
+
+
+#peritoStage.active {
+    opacity: 1;
+}
+
+
+#peritoStage .perito-frame-wrap {
+    position: absolute;
+
+    inset: 0;
+
+    overflow: hidden;
+
+    background:
+        #081522;
+}
+
+
+#peritoStage .perito-frame {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    border: 0;
+
+    background:
+        #081522;
+}
+
+
+/* ==========================================================
+4. CARGA
+========================================================= */
+
+#peritoStage .perito-loading {
+    position: absolute;
+
+    z-index:
+        60;
+
+    inset: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap:
+        10px;
+
+    background:
+        #081522;
+
+    color:
+        #d9e5ee;
+
+    transition:
+        opacity .3s ease,
+        visibility .3s ease;
+}
+
+
+#peritoStage .perito-loading.hidden {
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+}
+
+
+#peritoStage .perito-loading-dot {
+    width: 10px;
+    height: 10px;
+
+    border-radius:
+        50%;
+
+    background:
+        #20c9b5;
+
+    box-shadow:
+        0 0 18px
+        rgba(32, 201, 181, .65);
+
+    animation:
+        valuLoadingPulse
+        1s
+        ease-in-out
+        infinite;
+}
+
+
+@keyframes valuLoadingPulse {
+
+    0%,
+    100% {
+        transform:
+            scale(.8);
+
+        opacity:
+            .55;
+    }
+
+    50% {
+        transform:
+            scale(1.18);
+
+        opacity:
+            1;
+    }
+
+}
+
+
+/* ==========================================================
+5. VALU FLOTANTE
+========================================================= */
+
+#peritoStage .valu-coach {
+    position: absolute;
+
+    right:
+        clamp(14px, 2vw, 30px);
+
+    bottom:
+        clamp(18px, 3vh, 34px);
+
+    z-index:
+        50;
+
+    display: flex;
+
+    flex-direction:
+        row;
+
+    align-items:
+        flex-end;
+
+    justify-content:
+        flex-end;
+
+    gap:
+        13px;
+
+    max-width:
+        min(610px, calc(100vw - 28px));
+
+    pointer-events:
+        none;
+
+    opacity:
+        0;
+
+    transform:
+        translateY(12px)
+        scale(.98);
+
+    transition:
+        opacity .28s ease,
+        transform .28s ease;
+}
+
+
+#peritoStage .valu-coach.visible {
+    opacity: 1;
+
+    transform:
+        translateY(0)
+        scale(1);
+}
+
+
+/* ==========================================================
+6. CABEZA
+========================================================= */
+
+#peritoStage .valu-head-button {
+    position: relative;
+
+    order: 2;
+
+    flex:
+        0 0 auto;
+
+    width:
+        clamp(92px, 8vw, 132px);
+
+    height:
+        clamp(92px, 8vw, 132px);
+
+    padding: 0;
+
+    border: 0;
+
+    border-radius:
+        50%;
+
+    background:
+        transparent;
+
+    cursor:
+        pointer;
+
+    pointer-events:
+        auto;
+
+    animation:
+        valuHeadPermanentFloat
+        3.8s
+        ease-in-out
+        infinite;
+}
+
+
+@keyframes valuHeadPermanentFloat {
+
+    0%,
+    100% {
+        transform:
+            translate3d(0, 0, 0);
+    }
+
+    50% {
+        transform:
+            translate3d(0, -7px, 0);
+    }
+
+}
+
+
+#peritoStage .valu-head-halo {
+    position: absolute;
+
+    inset: 7px;
+
+    border-radius:
+        50%;
+
+    background:
+        rgba(32, 201, 181, .13);
+
+    filter:
+        blur(16px);
+
+    transform:
+        scale(1.12);
+}
+
+
+#peritoStage .valu-head-stage {
+    position: absolute;
+
+    inset: 0;
+
+    overflow: hidden;
+
+    border-radius:
+        50%;
+
+    background:
+        radial-gradient(
+            circle at 50% 45%,
+            rgba(32, 201, 181, .13),
+            rgba(5, 19, 24, .88)
+        );
+
+    border:
+        1px solid
+        rgba(32, 201, 181, .3);
+
+    box-shadow:
+        0 10px 30px
+        rgba(0, 0, 0, .28),
+
+        0 0 24px
+        rgba(32, 201, 181, .14);
+}
+
+
+#peritoStage .valu-head-image {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit:
+        contain;
+
+    object-position:
+        center;
+
+    opacity: 0;
+
+    transform:
+        none !important;
+
+    pointer-events:
+        none;
+
+    user-select:
+        none;
+
+    transition:
+        opacity .045s linear;
+}
+
+
+#peritoStage .valu-head-image.active {
+    opacity: 1;
+}
+
+
+/* ==========================================================
+7. BURBUJA
+========================================================= */
+
+#peritoStage .valu-coach-bubble {
+    order: 1;
+
+    width:
+        min(390px, calc(100vw - 160px));
+
+    padding:
+        17px;
+
+    border:
+        1px solid
+        rgba(32, 201, 181, .34);
+
+    border-radius:
+        18px 18px 5px 18px;
+
+    background:
+        rgba(5, 24, 31, .96);
+
+    color:
+        #f5fbfc;
+
+    box-shadow:
+        0 14px 38px
+        rgba(0, 0, 0, .3),
+
+        0 0 26px
+        rgba(32, 201, 181, .08);
+
+    backdrop-filter:
+        blur(14px);
+
+    -webkit-backdrop-filter:
+        blur(14px);
+
+    opacity: 0;
+
+    visibility:
+        hidden;
+
+    pointer-events:
+        none;
+
+    transform:
+        translateY(10px)
+        translateX(8px);
+
+    transition:
+        opacity .25s ease,
+        transform .25s ease,
+        visibility .25s ease;
+}
+
+
+#peritoStage .valu-coach-bubble.visible {
+    opacity: 1;
+
+    visibility:
+        visible;
+
+    pointer-events:
+        auto;
+
+    transform:
+        translateY(0)
+        translateX(0);
+}
+
+
+#peritoStage .valu-coach-header {
+    display: flex;
+
+    align-items:
+        flex-start;
+
+    justify-content:
+        space-between;
+
+    gap:
+        12px;
+}
+
+
+#peritoStage .valu-coach-title {
+    color:
+        #20c9b5;
+
+    font-size:
+        12px;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        .085em;
+
+    text-transform:
+        uppercase;
+}
+
+
+#peritoStage .valu-coach-step {
+    margin-top:
+        3px;
+
+    color:
+        #91a3b7;
+
+    font-size:
+        12px;
+
+    font-weight:
+        600;
+}
+
+
+#peritoStage .valu-coach-close {
+    width:
+        28px;
+
+    height:
+        28px;
+
+    padding:
+        0;
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, .1);
+
+    border-radius:
+        50%;
+
+    background:
+        rgba(255, 255, 255, .05);
+
+    color:
+        #b8cbd1;
+
+    font-size:
+        19px;
+
+    cursor:
+        pointer;
+}
+
+
+#peritoStage .valu-coach-text {
+    margin-top:
+        12px;
+
+    color:
+        #eef7f8;
+
+    font-size:
+        clamp(13px, 1.15vw, 15px);
+
+    line-height:
+        1.52;
+}
+
+
+#peritoStage .valu-coach-actions {
+    display: flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+    gap:
+        10px;
+
+    margin-top:
+        14px;
+}
+
+
+
+
+#peritoStage .valu-coach-nav {
+    display: flex;
+
+    align-items:
+        center;
+
+    gap:
+        7px;
+
+    margin-left:
+        auto;
+}
+
+
+#peritoStage .valu-coach-nav-button {
+    min-width:
+        38px;
+
+    height:
+        36px;
+
+    padding:
+        0 12px;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, .12);
+
+    border-radius:
+        999px;
+
+    background:
+        rgba(255, 255, 255, .055);
+
+    color:
+        #f5fbfc;
+
+    font-size:
+        13px;
+
+    font-weight:
+        700;
+
+    cursor:
+        pointer;
+}
+
+
+#peritoStage .valu-coach-nav-button:disabled {
+    opacity:
+        .35;
+
+    cursor:
+        default;
+}
+
+
+#peritoStage .valu-coach-nav-primary {
+    min-width:
+        92px;
+
+    border-color:
+        rgba(32, 201, 181, .55);
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(32, 201, 181, .94),
+            rgba(16, 135, 143, .94)
+        );
+
+    color:
+        #fff;
+}
+
+
+/* ==========================================================
+8. VOLVER AL INICIO
+========================================================= */
+
+#peritoStage .valu-reset-now {
+    position: absolute;
+
+    top:
+        clamp(12px, 2vh, 22px);
+
+    right:
+        clamp(12px, 1.8vw, 26px);
+
+    z-index:
+        55;
+
+    padding:
+        9px 15px;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, .13);
+
+    border-radius:
+        999px;
+
+    background:
+        rgba(4, 17, 23, .86);
+
+    color:
+        rgba(236, 247, 248, .86);
+
+    font-size:
+        12px;
+
+    cursor:
+        pointer;
+
+    backdrop-filter:
+        blur(10px);
+
+    -webkit-backdrop-filter:
+        blur(10px);
+}
+
+
+/* ==========================================================
+9. TABLET
+========================================================= */
+
+@media (max-width: 1024px) {
+
+    #valuIntro .valu-content {
+        gap:
+            25px;
+    }
+
+
+    #valuIntro .valu-float {
+        flex-basis:
+            min(430px, 43vw);
+
+        width:
+            min(430px, 43vw);
+
+        height:
+            560px;
+    }
+
+
+    #peritoStage .valu-coach-bubble {
+        width:
+            min(340px, calc(100vw - 145px));
+    }
+
+}
+
+
+
+
+@media (prefers-reduced-motion: reduce) {
+
+    #valuWelcome::before,
+    #valuWelcome::after,
+    #valuWelcome .valu-welcome-glow,
+    #valuWelcome .valu-tech-orbit,
+    #valuWelcome .valu-tech-core,
+    #valuWelcome .valu-tech-node,
+    #valuWelcome .valu-status-dot {
+        animation:
+            none !important;
+    }
+
+}
+
+/* ==========================================================
+10. MÓVIL
+========================================================= */
+
+@media (max-width: 767px) {
+
+    #valuWelcome {
+        padding:
+            22px 15px;
+    }
+
+
+    #valuWelcome .valu-welcome-card {
+        width:
+            100%;
+
+        padding:
+            36px 20px 30px;
+    }
+
+
+    #valuWelcome .valu-welcome-tech-shell {
+        width:
+            440px;
+
+        right:
+            -250px;
+
+        opacity:
+            .25;
+    }
+
+
+    #valuWelcome .valu-welcome-hud {
+        margin-top:
+            22px;
+
+        font-size:
+            8px;
+    }
+
+
+    #valuIntro {
+        padding:
+            15px 12px;
+
+        align-items:
+            flex-start;
+
+        overflow-x:
+            hidden;
+
+        overflow-y:
+            auto;
+
+        -webkit-overflow-scrolling:
+            touch;
+    }
+
+
+    #valuIntro .valu-content {
+        flex-direction:
+            column;
+
+        gap:
+            2px;
+
+        min-height:
+            100%;
+
+        padding:
+            4px 0 28px;
+    }
+
+
+    #valuIntro .valu-float {
+        flex:
+            none;
+
+        width:
+            min(320px, 90vw);
+
+        height:
+            390px;
+    }
+
+
+    #valuIntro .valu-dialogue {
+        width:
+            96%;
+
+        flex:
+            none;
+
+        gap:
+            8px;
+    }
+
+
+    #valuIntro .valu-bubble {
+        font-size:
+            14px;
+
+        padding:
+            11px 14px;
+    }
+
+
+    #peritoStage .valu-coach {
+        right:
+            10px;
+
+        bottom:
+            10px;
+
+        max-width:
+            calc(100vw - 20px);
+
+        gap:
+            7px;
+    }
+
+
+    #peritoStage .valu-head-button {
+        width:
+            84px;
+
+        height:
+            84px;
+    }
+
+
+    #peritoStage .valu-coach-bubble {
+        width:
+            min(300px, calc(100vw - 110px));
+
+        max-height:
+            44dvh;
+
+        overflow-y:
+            auto;
+
+        padding:
+            14px;
+    }
+
+
+    #peritoStage .valu-coach-text {
+        font-size:
+            13px;
+    }
+
+
+    #peritoStage .valu-reset-now {
+        top:
+            8px;
+
+        right:
+            8px;
+
+        font-size:
+            11px;
+    }
+
+}
+
+
+/* ==========================================================
+11. ACCESIBILIDAD
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    #valuIntro .valu-float,
+    #peritoStage .valu-head-button,
+    #peritoStage .perito-loading-dot {
+        animation:
+            none !important;
+    }
+
+}
+
+/* ==========================================================
+   INTRO · CONTROL MANUAL "SIGUIENTE"
+   ========================================================== */
+
+#valuIntro .valu-intro-actions {
+    align-self: flex-start;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+#valuIntro .valu-intro-actions .valu-start {
+    align-self: auto;
+    margin-top: 0;
+}
+
+#valuIntro .valu-intro-next {
+    min-width: 155px;
+    padding: 14px 28px;
+    border: 1px solid rgba(32, 201, 181, .38);
+    border-radius: 40px;
+    background: rgba(32, 201, 181, .08);
+    color: #dffbf7;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    opacity: 0;
+    transform: translateY(8px);
+    pointer-events: none;
+    transition:
+        opacity .28s ease,
+        transform .28s ease,
+        background .2s ease,
+        border-color .2s ease;
+}
+
+#valuIntro .valu-intro-next span + span {
+    margin-left: 8px;
+}
+
+#valuIntro .valu-intro-next.visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+#valuIntro .valu-intro-next.visible:hover {
+    background: rgba(32, 201, 181, .15);
+    border-color: rgba(32, 201, 181, .62);
+}
+
+@media (max-width: 767px), (max-height: 600px) {
+    #valuIntro .valu-intro-actions {
+        width: 100%;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 6px;
+    }
+
+    #valuIntro .valu-intro-next,
+    #valuIntro .valu-intro-actions .valu-start {
+        min-width: 145px;
+        padding: 12px 22px;
+        font-size: 15px;
+    }
+}

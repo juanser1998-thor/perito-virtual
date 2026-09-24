@@ -1,0 +1,16 @@
+# Sistema operativo y editores
+.DS_Store
+Thumbs.db
+Desktop.ini
+.idea/
+.vscode/
+
+# Archivos temporales y registros
+*.log
+*.tmp
+*.bak
+
+# Configuración privada local
+.env
+.env.*
+!.env.example
